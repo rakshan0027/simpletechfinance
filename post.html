@@ -16,6 +16,11 @@
 
 <body class="bg-gray-50 text-slate-800">
 
+<!-- Reading Progress Bar -->
+<div id="progress-container" class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+  <div id="progress-bar" class="h-1 bg-blue-600 w-0"></div>
+</div>
+
 <!-- NAVBAR -->
 <header class="bg-white shadow">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -140,6 +145,16 @@ fetch('posts.json')
     document.getElementById('post-content').innerText =
       'Something went wrong. Please try again later.';
   });
+</script>
+
+<script>
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (scrollTop / scrollHeight) * 100;
+
+  document.getElementById('progress-bar').style.width = scrolled + '%';
+});
 </script>
 
 </body>
