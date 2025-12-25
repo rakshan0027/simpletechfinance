@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Article – SimpleTechFinance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Read tech news and finance basics explained simply." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-slate-800">
+
+<!-- NAVBAR -->
+<header class="bg-white shadow">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl font-bold text-blue-600">SimpleTech</span>
+      <span class="text-2xl font-bold text-green-600">Finance</span>
+    </div>
+    <nav class="space-x-6 text-sm">
+      <a href="index.html" class="hover:text-blue-600">Home</a>
+      <a href="tech.html" class="hover:text-blue-600">Tech News</a>
+      <a href="finance.html" class="hover:text-green-600">Finance Basics</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ARTICLE -->
+<main class="max-w-3xl mx-auto px-6 py-12 bg-white mt-8 rounded-xl shadow">
+
+  <span id="post-category"
+    class="inline-block text-xs px-3 py-1 rounded-full mb-4">
+    Category
+  </span>
+
+  <h1 id="post-title" class="text-4xl font-bold mb-4">
+    Loading title...
+  </h1>
+
+  <p id="post-date" class="text-sm text-gray-500 mb-6">
+    Loading date...
+  </p>
+
+  <!-- AD PLACEHOLDER (TOP) -->
+  <div class="bg-gray-100 text-center text-sm text-gray-500 py-4 rounded mb-6">
+    Advertisement
+  </div>
+
+  <article id="post-content" class="prose max-w-none text-gray-700">
+    Loading content...
+  </article>
+
+  <!-- AD PLACEHOLDER (BOTTOM) -->
+  <div class="bg-gray-100 text-center text-sm text-gray-500 py-4 rounded mt-8">
+    Advertisement
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-white border-t mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-500 text-center">
+    © 2025 SimpleTechFinance
+  </div>
+</footer>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const postId = parseInt(params.get('id'));
+
+fetch('posts.json')
+  .then(res => res.json())
+  .then(posts => {
+    const post = posts.find(p => p.id === postId);
+
+    if (!post) {
+      document.getElementById('post-title').innerText = 'Post not found';
+      document.getElementById('post-content').innerText = 'The article does not exist.';
+      return;
+    }
+
+    document.title = post.title + ' – SimpleTechFinance';
+    document.getElementById('post-title').innerText = post.title;
+    document.getElementById('post-content').innerHTML = post.content || post.summary;
+    document.getElementById('post-date').innerText = post.date || '';
+
+    const categoryEl = document.getElementById('post-category');
+    categoryEl.innerText = post.category;
+
+    if (post.category === 'Tech News') {
+      categoryEl.className += ' bg-blue-100 text-blue-600';
+    } else {
+      categoryEl.className += ' bg-green-100 text-green-600';
+    }
+  })
+  .catch(() => {
+    document.getElementById('post-title').innerText = 'Error loading post';
+    document.getElementById('post-content').innerText = 'Please try again later.';
+  });
+</script>
+
+</body>
+</html>
