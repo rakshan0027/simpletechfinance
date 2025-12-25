@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://rakshan0027.github.io/simpletechfinance/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://rakshan0027.github.io/simpletechfinance/tech.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rakshan0027.github.io/simpletechfinance/finance.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rakshan0027.github.io/simpletechfinance/about.html</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://rakshan0027.github.io/simpletechfinance/contact.html</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://rakshan0027.github.io/simpletechfinance/privacy.html</loc>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://rakshan0027.github.io/simpletechfinance/disclaimer.html</loc>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>
