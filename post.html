@@ -88,6 +88,15 @@
 
 </main>
 
+<!-- RELATED POSTS -->
+<section class="max-w-3xl mx-auto px-6 mt-12">
+  <h3 class="text-xl font-bold mb-4">Related Posts</h3>
+
+  <div id="related-posts" class="grid md:grid-cols-2 gap-6">
+    <p class="text-gray-500">Loading related posts...</p>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="bg-white border-t mt-16">
   <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-500 text-center">
@@ -103,7 +112,45 @@ const postId = parseInt(params.get('id'));
 fetch('posts.json')
   .then(res => res.json())
   .then(posts => {
-    const post = posts.find(p => p.id === postId);
+    /* RELATED POSTS */
+const relatedContainer = document.getElementById('related-posts');
+
+if (relatedContainer) {
+  const related = posts
+    .filter(p => p.category === post.category && p.id !== post.id)
+    .slice(0, 2);
+
+  relatedContainer.innerHTML = '';
+
+  related.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'bg-white rounded-xl shadow p-4';
+
+    card.innerHTML = `
+      <span class="text-xs px-2 py-1 rounded-full ${
+        r.category === 'Tech News'
+          ? 'bg-blue-100 text-blue-600'
+          : 'bg-green-100 text-green-600'
+      }">
+        ${r.category}
+      </span>
+
+      <h4 class="font-semibold mt-3 mb-2">${r.title}</h4>
+      <p class="text-sm text-gray-600 mb-3">${r.summary}</p>
+
+      <a href="post.html?id=${r.id}" class="text-blue-600 text-sm font-medium">
+        Read →
+      </a>
+    `;
+
+    relatedContainer.appendChild(card);
+  });
+
+  if (related.length === 0) {
+    relatedContainer.innerHTML =
+      '<p class="text-gray-500">No related posts found.</p>';
+  }
+}
 
     if (!post) {
       document.getElementById('post-title').innerText = 'Post not found';
