@@ -15,7 +15,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Finance basics explained simply for beginners." />
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js"></script>
+<script>
+  fetch('posts.json')
+    .then(res => res.json())
+    .then(posts => {
+      allPosts = posts.filter(p => p.category === 'Finance Basics');
+      renderPosts(allPosts);
+    });
+</script>
 </head>
 
 <body class="bg-gray-50 text-slate-800">
