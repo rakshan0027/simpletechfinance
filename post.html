@@ -2,22 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <!-- Dynamic Title -->
   <title>Article – SimpleTechFinance</title>
 
-  <!-- SEO Meta -->
   <meta name="description" content="Read beginner-friendly tech news and finance basics on SimpleTechFinance." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-50 text-slate-800">
 
 <!-- Reading Progress Bar -->
-<div id="progress-container" class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+<div class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
   <div id="progress-bar" class="h-1 bg-blue-600 w-0"></div>
 </div>
 
@@ -29,66 +25,49 @@
       <span class="text-2xl font-bold text-green-600">Finance</span>
     </div>
     <nav class="space-x-6 text-sm">
-  <a href="index.html" class="text-blue-600 font-medium">Home</a>
-  <a href="tech.html">Tech News</a>
-  <a href="finance.html">Finance Basics</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="privacy.html" class="text-gray-500 hover:text-blue-600">
-    Privacy Policy
-  </a>
-  <a href="disclaimer.html" class="text-gray-500 hover:text-blue-600">
-    Disclaimer
-  </a>
-</nav>
-
+      <a href="index.html" class="text-blue-600 font-medium">Home</a>
+      <a href="tech.html">Tech News</a>
+      <a href="finance.html">Finance Basics</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </nav>
   </div>
 </header>
 
-<!-- ARTICLE CONTAINER -->
+<!-- ARTICLE -->
 <main class="max-w-3xl mx-auto px-6 py-12 bg-white mt-8 rounded-xl shadow">
 
-  <!-- CATEGORY -->
-  <span
-    id="post-category"
-    class="inline-block text-xs px-3 py-1 rounded-full mb-4">
-    Category
-  </span>
+  <span id="post-category" class="inline-block text-xs px-3 py-1 rounded-full mb-4"></span>
 
-  <!-- H1 TITLE (SEO IMPORTANT) -->
-  <h1 id="post-title" class="text-4xl font-bold mb-4">
-    Loading title...
-  </h1>
+  <h1 id="post-title" class="text-4xl font-bold mb-4">Loading...</h1>
 
-  <!-- DATE -->
-  <p id="post-date" class="text-sm text-gray-500 mb-6">
-    Loading date...
-  </p>
+  <p id="post-date" class="text-sm text-gray-500 mb-6"></p>
 
-  <!-- AD PLACEHOLDER (TOP) -->
   <div class="bg-gray-100 text-center text-sm text-gray-500 py-4 rounded mb-8">
     Advertisement
   </div>
 
-  <!-- ARTICLE CONTENT -->
   <article
-  id="post-content"
-  class="max-w-none text-gray-700 leading-7
-         [&>h2]:text-2xl
-         [&>h2]:font-bold
-         [&>h2]:mt-8
-         [&>h2]:mb-4
-         [&>p]:mb-4">
+    id="post-content"
+    class="max-w-none text-gray-700 leading-7
+           [&>h2]:text-2xl
+           [&>h2]:font-bold
+           [&>h2]:mt-8
+           [&>h2]:mb-4
+           [&>p]:mb-4
+           [&>ul]:list-disc
+           [&>ul]:pl-6
+           [&>ul]:mb-4">
   </article>
 
-  <!-- INTERNAL LINKS -->
   <div class="mt-10 border-t pt-6">
     <h3 class="font-semibold mb-2">Explore More</h3>
     <a href="tech.html" class="text-blue-600 mr-4">Tech News</a>
     <a href="finance.html" class="text-green-600">Finance Basics</a>
   </div>
 
-  <!-- AD PLACEHOLDER (BOTTOM) -->
   <div class="bg-gray-100 text-center text-sm text-gray-500 py-4 rounded mt-10">
     Advertisement
   </div>
@@ -98,10 +77,7 @@
 <!-- RELATED POSTS -->
 <section class="max-w-3xl mx-auto px-6 mt-12">
   <h3 class="text-xl font-bold mb-4">Related Posts</h3>
-
-  <div id="related-posts" class="grid md:grid-cols-2 gap-6">
-    <p class="text-gray-500">Loading related posts...</p>
-  </div>
+  <div id="related-posts" class="grid md:grid-cols-2 gap-6"></div>
 </section>
 
 <!-- FOOTER -->
@@ -111,103 +87,75 @@
   </div>
 </footer>
 
-<!-- SCRIPT -->
 <script>
 const params = new URLSearchParams(window.location.search);
-const postId = parseInt(params.get('id'));
+const postId = Number(params.get('id'));
 
 fetch('posts.json')
   .then(res => res.json())
   .then(posts => {
-    /* RELATED POSTS */
-const relatedContainer = document.getElementById('related-posts');
 
-if (relatedContainer) {
-  const related = posts
-    .filter(p => p.category === post.category && p.id !== post.id)
-    .slice(0, 2);
-
-  relatedContainer.innerHTML = '';
-
-  related.forEach(r => {
-    const card = document.createElement('div');
-    card.className = 'bg-white rounded-xl shadow p-4';
-
-    card.innerHTML = `
-      <span class="text-xs px-2 py-1 rounded-full ${
-        r.category === 'Tech News'
-          ? 'bg-blue-100 text-blue-600'
-          : 'bg-green-100 text-green-600'
-      }">
-        ${r.category}
-      </span>
-
-      <h4 class="font-semibold mt-3 mb-2">${r.title}</h4>
-      <p class="text-sm text-gray-600 mb-3">${r.summary}</p>
-
-      <a href="post.html?id=${r.id}" class="text-blue-600 text-sm font-medium">
-        Read →
-      </a>
-    `;
-
-    relatedContainer.appendChild(card);
-  });
-
-  if (related.length === 0) {
-    relatedContainer.innerHTML =
-      '<p class="text-gray-500">No related posts found.</p>';
-  }
-}
+    const post = posts.find(p => p.id === postId);
 
     if (!post) {
       document.getElementById('post-title').innerText = 'Post not found';
-      document.getElementById('post-content').innerText =
-        'The article you are looking for does not exist.';
+      document.getElementById('post-content').innerText = 'This article does not exist.';
       return;
     }
 
-    /* TITLE */
+    // TITLE & META
     document.title = post.title + ' – SimpleTechFinance';
+    document.querySelector('meta[name="description"]')
+      .setAttribute('content', post.summary);
+
+    // CONTENT
     document.getElementById('post-title').innerText = post.title;
-
-    /* META DESCRIPTION (SEO) */
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc && post.summary) {
-      metaDesc.setAttribute('content', post.summary);
-    }
-
-    /* CONTENT */
-    document.getElementById('post-content').innerHTML =
-      post.content || `<p>${post.summary}</p>`;
-
-    /* DATE */
     document.getElementById('post-date').innerText =
       post.date ? `Published on ${post.date}` : '';
+    document.getElementById('post-content').innerHTML = post.content;
 
-    /* CATEGORY STYLE */
-    const categoryEl = document.getElementById('post-category');
-    categoryEl.innerText = post.category;
+    // CATEGORY
+    const cat = document.getElementById('post-category');
+    cat.innerText = post.category;
+    cat.classList.add(
+      post.category === 'Tech News'
+        ? 'bg-blue-100 text-blue-600'
+        : 'bg-green-100 text-green-600'
+    );
 
-    if (post.category === 'Tech News') {
-      categoryEl.classList.add('bg-blue-100', 'text-blue-600');
-    } else {
-      categoryEl.classList.add('bg-green-100', 'text-green-600');
-    }
-  })
-  .catch(() => {
-    document.getElementById('post-title').innerText = 'Error loading post';
-    document.getElementById('post-content').innerText =
-      'Something went wrong. Please try again later.';
+    // RELATED POSTS
+    const related = posts
+      .filter(p => p.category === post.category && p.id !== post.id)
+      .slice(0, 2);
+
+    const relatedContainer = document.getElementById('related-posts');
+    relatedContainer.innerHTML = '';
+
+    related.forEach(r => {
+      relatedContainer.innerHTML += `
+        <div class="bg-white rounded-xl shadow p-4">
+          <span class="text-xs px-2 py-1 rounded-full ${
+            r.category === 'Tech News'
+              ? 'bg-blue-100 text-blue-600'
+              : 'bg-green-100 text-green-600'
+          }">${r.category}</span>
+          <h4 class="font-semibold mt-3 mb-2">${r.title}</h4>
+          <p class="text-sm text-gray-600 mb-3">${r.summary}</p>
+          <a href="post.html?id=${r.id}" class="text-blue-600 text-sm font-medium">
+            Read →
+          </a>
+        </div>`;
+    });
+
   });
 </script>
 
 <script>
 window.addEventListener('scroll', () => {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollTop = document.documentElement.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (scrollTop / scrollHeight) * 100;
-
-  document.getElementById('progress-bar').style.width = scrolled + '%';
+  document.getElementById('progress-bar').style.width =
+    (scrollTop / scrollHeight) * 100 + '%';
 });
 </script>
 
