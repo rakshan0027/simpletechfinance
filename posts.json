@@ -1,16 +1,8 @@
-[
-  {
-    "id": 1,
-    "title": "The Future of AI in 2025",
-    "category": "Tech News",
-    "summary": "Artificial Intelligence is evolving rapidly. Here's what beginners should expect next.",
-    "content": "Full article text..."
-  },
-  {
-    "id": 2,
-    "title": "Compound Interest Explained Simply",
-    "category": "Finance Basics",
-    "summary": "Learn how money grows over time using compound interest.",
-    "content": "Full article text..."
-  }
-]
+{
+  "id": 1,
+  "title": "The Future of AI in 2025",
+  "category": "Tech News",
+  "date": "2025-01-01",
+  "summary": "Artificial Intelligence is evolving rapidly...",
+  "content": "<p>Artificial Intelligence (AI) is changing the world...</p><h2>Why AI Matters</h2><p>AI helps automate tasks...</p>"
+}
