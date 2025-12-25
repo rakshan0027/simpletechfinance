@@ -1,12 +1,3 @@
-<div class="mb-6">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search articles..."
-    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-  />
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Finance basics explained simply for beginners." />
 
-  <script src="script.js"></script>
-<script>
-  fetch('posts.json')
-    .then(res => res.json())
-    .then(posts => {
-      allPosts = posts.filter(p => p.category === 'Finance Basics');
-      renderPosts(allPosts);
-    });
-</script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-50 text-slate-800">
@@ -55,9 +38,19 @@
   </div>
 </section>
 
+<!-- SEARCH -->
+<section class="max-w-7xl mx-auto px-6 mt-8">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search finance articles..."
+    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring"
+  />
+</section>
+
 <!-- POSTS -->
-<section class="max-w-7xl mx-auto px-6 py-12">
-  <div id="finance-posts" class="grid md:grid-cols-3 gap-6">
+<section class="max-w-7xl mx-auto px-6 py-10">
+  <div id="posts" class="grid md:grid-cols-3 gap-6">
     <p>Loading finance articles...</p>
   </div>
 </section>
@@ -70,35 +63,47 @@
 </footer>
 
 <script>
+let allPosts = [];
+
 fetch('posts.json')
   .then(res => res.json())
   .then(posts => {
-    const container = document.getElementById('finance-posts');
-    container.innerHTML = '';
-
-    posts
-      .filter(post => post.category === 'Finance Basics')
-      .forEach(post => {
-        const card = document.createElement('div');
-        card.className = 'bg-white p-6 rounded-xl shadow';
-
-        card.innerHTML = `
-          <span class="text-xs px-3 py-1 rounded-full bg-green-100 text-green-600">
-            Finance Basics
-          </span>
-          <h3 class="text-xl font-bold mt-4 mb-2">${post.title}</h3>
-          <p class="text-gray-600 mb-4">${post.summary}</p>
-          <a href="post.html?id=${post.id}" class="text-green-600 font-medium">
-            Read Post →
-          </a>
-        `;
-
-        container.appendChild(card);
-      });
-  })
-  .catch(() => {
-    document.getElementById('finance-posts').innerHTML = 'Failed to load posts.';
+    allPosts = posts.filter(p => p.category === 'Finance Basics');
+    renderPosts(allPosts);
   });
+
+function renderPosts(posts) {
+  const container = document.getElementById('posts');
+  container.innerHTML = '';
+
+  posts.forEach(post => {
+    const card = document.createElement('div');
+    card.className = 'bg-white rounded-xl shadow p-6';
+
+    card.innerHTML = `
+      <span class="text-xs px-3 py-1 rounded-full bg-green-100 text-green-600">
+        Finance Basics
+      </span>
+      <h3 class="text-xl font-bold mt-4 mb-2">${post.title}</h3>
+      <p class="text-gray-600 mb-4">${post.summary}</p>
+      <a href="post.html?id=${post.id}" class="text-green-600 font-medium">
+        Read Post →
+      </a>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  const filtered = allPosts.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    p.summary.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  );
+  renderPosts(filtered);
+});
 </script>
 
 </body>
