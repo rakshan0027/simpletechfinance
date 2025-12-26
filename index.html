@@ -1,21 +1,10 @@
-  <div class="mb-6">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search articles..."
-    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-  />
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SimpleTechFinance</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimpleTechFinance – Tech & Money Simplified</title>
   <meta name="description" content="SimpleTechFinance explains tech news and finance basics in simple English for beginners." />
-
-  <!-- Tailwind -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -23,113 +12,101 @@
 
 <!-- NAVBAR -->
 <header class="bg-white shadow">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-2">
-      <span class="text-2xl font-bold text-blue-600">SimpleTech</span>
-      <span class="text-2xl font-bold text-green-600">Finance</span>
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold">
+      <span class="text-blue-600">SimpleTech</span>
+      <span class="text-green-600">Finance</span>
     </div>
-    <nav class="space-x-6 text-sm">
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6 text-sm">
       <a href="index.html" class="text-blue-600 font-medium">Home</a>
       <a href="tech.html">Tech News</a>
       <a href="finance.html">Finance Basics</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="privacy.html" class="text-gray-500 hover:text-blue-600">
-        Privacy Policy
-      </a>
-      <a href="disclaimer.html" class="text-gray-500 hover:text-blue-600">
-        Disclaimer
-       </a>
     </nav>
 
+    <!-- Mobile Button -->
+    <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
+    <a href="index.html" class="block">Home</a>
+    <a href="tech.html" class="block">Tech News</a>
+    <a href="finance.html" class="block">Finance Basics</a>
+    <a href="about.html" class="block">About</a>
+    <a href="contact.html" class="block">Contact</a>
+    <a href="privacy.html" class="block text-gray-500">Privacy Policy</a>
+    <a href="disclaimer.html" class="block text-gray-500">Disclaimer</a>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="text-center py-20 bg-white">
-  <h1 class="text-5xl font-extrabold mb-4">
+<section class="max-w-7xl mx-auto px-4 py-20 text-center">
+  <h1 class="text-3xl md:text-5xl font-bold mb-6">
     Tech & Money, <span class="text-blue-600">Simplified.</span>
   </h1>
   <p class="text-gray-600 max-w-2xl mx-auto mb-8">
-    We break down complex Tech News and Finance Basics into clear, simple English for students and beginners.
+    We break down complex Tech News and Finance Basics into simple English for beginners.
   </p>
-  <div class="flex justify-center gap-4">
-    <a href="tech.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium">Read Tech News</a>
-    <a href="finance.html" class="bg-green-100 text-green-700 px-6 py-3 rounded-lg font-medium">Learn Finance</a>
+
+  <div class="flex flex-col md:flex-row gap-4 justify-center">
+    <a href="tech.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-center">
+      Read Tech News
+    </a>
+    <a href="finance.html" class="bg-green-100 text-green-700 px-6 py-3 rounded-lg text-center">
+      Learn Finance
+    </a>
   </div>
 </section>
 
-<!-- LATEST UPDATES -->
-<section class="max-w-7xl mx-auto px-6 py-12">
-  <h2 class="text-3xl font-bold mb-8">Latest Updates</h2>
-  <div id="posts" class="grid md:grid-cols-3 gap-6">
+<!-- LATEST POSTS -->
+<section class="max-w-7xl mx-auto px-4 py-12">
+  <h2 class="text-2xl font-bold mb-6">Latest Updates</h2>
+  <div id="posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <p>Loading posts...</p>
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="max-w-7xl mx-auto px-6 my-16">
-  <div class="bg-slate-900 text-white rounded-2xl p-10 text-center">
-    <h3 class="text-3xl font-bold mb-4">Get Smarter in 5 Minutes</h3>
-    <p class="text-xs text-gray-400 mt-3">
-  By subscribing, you agree to our <a href="privacy.html" class="underline">Privacy Policy</a>.
-    </p>
-
-
-    <form
-      action="https://formsubmit.co/simpletechfinance@gmail.com"
-      method="POST"
-      class="flex flex-col md:flex-row gap-4 justify-center max-w-md mx-auto"
-    >
-      <input
-        type="email"
-        name="email"
-        required
-        placeholder="Enter your email"
-        class="flex-1 px-4 py-3 rounded-lg text-black"
-      />
-
-      <button
-        type="submit"
-        class="bg-blue-600 px-6 py-3 rounded-lg font-medium"
-      >
-        Subscribe
-      </button>
-
-      <!-- REQUIRED HIDDEN FIELDS -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_subject" value="New SimpleTechFinance Subscriber">
-    </form>
-  </div>
-</section>
-
 <!-- FOOTER -->
-<footer class="bg-white mt-20 border-t">
-  <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8 text-sm text-gray-600">
-    <div>
-      <h4 class="font-semibold mb-2">About</h4>
-      <p>SimpleTechFinance helps beginners understand technology and personal finance easily.</p>
-    </div>
-    <div>
-      <h4 class="font-semibold mb-2">Quick Links</h4>
-      <ul class="space-y-1">
-        <li><a href="tech.html">Tech News</a></li>
-        <li><a href="finance.html">Finance Basics</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="disclaimer.html">Disclaimer</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="font-semibold mb-2">Categories</h4>
-      <p>Technology • Finance</p>
-    </div>
-  </div>
-  <div class="text-center text-xs text-gray-400 pb-6">
-    © 2025 SimpleTechFinance
+<footer class="bg-white border-t mt-16">
+  <div class="max-w-7xl mx-auto px-4 py-6 text-sm text-gray-500 text-center">
+    © 2025 SimpleTechFinance ·
+    <a href="privacy.html">Privacy</a> ·
+    <a href="disclaimer.html">Disclaimer</a>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+/* Mobile Menu */
+document.getElementById('menu-btn').onclick = () =>
+  document.getElementById('mobile-menu').classList.toggle('hidden');
+
+/* Load Posts */
+fetch('posts.json')
+  .then(r => r.json())
+  .then(posts => {
+    const container = document.getElementById('posts');
+    container.innerHTML = '';
+    posts.slice(0, 6).forEach(p => {
+      container.innerHTML += `
+        <div class="bg-white p-5 rounded-xl shadow">
+          <span class="text-xs px-2 py-1 rounded-full ${
+            p.category === 'Tech News'
+              ? 'bg-blue-100 text-blue-600'
+              : 'bg-green-100 text-green-600'
+          }">${p.category}</span>
+          <h3 class="font-semibold mt-3 mb-2">${p.title}</h3>
+          <p class="text-sm text-gray-600 mb-3">${p.summary}</p>
+          <a href="post.html?id=${p.id}" class="text-blue-600 text-sm font-medium">
+            Read →
+          </a>
+        </div>`;
+    });
+  });
+</script>
+
 </body>
 </html>
