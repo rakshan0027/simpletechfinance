@@ -13,36 +13,44 @@
 </div>
 
 <!-- NAVBAR -->
-<!-- NAVBAR -->
-<header class="bg-white shadow">
+<header class="bg-white shadow relative z-50">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <div class="text-xl font-bold">
       <span class="text-blue-600">SimpleTech</span>
       <span class="text-green-600">Finance</span>
     </div>
 
+    <!-- Desktop Menu -->
     <nav class="hidden md:flex space-x-6 text-sm">
-      <a href="index.html" class="font-medium">Home</a>
+      <a href="index.html">Home</a>
       <a href="tech.html">Tech News</a>
       <a href="finance.html">Finance Basics</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
 
-    <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+    <!-- Mobile Button -->
+    <button
+      id="menu-btn"
+      class="md:hidden text-2xl p-2 focus:outline-none"
+      aria-label="Open menu">
+      ☰
+    </button>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
-    <a href="index.html" class="block">Home</a>
-    <a href="tech.html" class="block">Tech News</a>
-    <a href="finance.html" class="block">Finance Basics</a>
-    <a href="about.html" class="block">About</a>
-    <a href="contact.html" class="block">Contact</a>
-    <a href="privacy.html" class="block text-gray-500">Privacy Policy</a>
-    <a href="disclaimer.html" class="block text-gray-500">Disclaimer</a>
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white px-4 pb-4 space-y-2 border-t">
+    <a href="index.html" class="block py-2">Home</a>
+    <a href="tech.html" class="block py-2">Tech News</a>
+    <a href="finance.html" class="block py-2">Finance Basics</a>
+    <a href="about.html" class="block py-2">About</a>
+    <a href="contact.html" class="block py-2">Contact</a>
+    <a href="privacy.html" class="block py-2 text-gray-500">Privacy Policy</a>
+    <a href="disclaimer.html" class="block py-2 text-gray-500">Disclaimer</a>
   </div>
 </header>
-<!-- (PASTE SAME NAVBAR FROM index.html HERE) -->
 
 <main class="max-w-3xl mx-auto px-4 py-12 bg-white mt-8 rounded-xl shadow">
   <span id="post-category" class="text-xs px-3 py-1 rounded-full"></span>
