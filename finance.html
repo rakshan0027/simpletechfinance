@@ -1,117 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Finance Basics – SimpleTechFinance</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Finance basics explained simply for beginners." />
-
+  <meta charset="UTF-8">
+  <title>Tech News – SimpleTechFinance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body class="bg-gray-50 text-slate-800">
+<body class="bg-gray-50">
 
 <!-- NAVBAR -->
-<header class="bg-white shadow">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-2">
-      <span class="text-2xl font-bold text-blue-600">SimpleTech</span>
-      <span class="text-2xl font-bold text-green-600">Finance</span>
-    </div>
-    <nav class="space-x-6 text-sm">
-  <a href="index.html" class="text-blue-600 font-medium">Home</a>
-  <a href="tech.html">Tech News</a>
-  <a href="finance.html">Finance Basics</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="privacy.html" class="text-gray-500 hover:text-blue-600">
-    Privacy Policy
-  </a>
-  <a href="disclaimer.html" class="text-gray-500 hover:text-blue-600">
-    Disclaimer
-  </a>
-</nav>
+<!-- (PASTE SAME NAVBAR FROM index.html HERE) -->
 
+<main class="max-w-7xl mx-auto px-4 py-12">
+  <h1 class="text-3xl font-bold mb-6">Tech News</h1>
+  <div id="tech-posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <p>Loading...</p>
   </div>
-</header>
+</main>
 
-<!-- PAGE HEADER -->
-<section class="bg-white py-12 border-b">
-  <div class="max-w-7xl mx-auto px-6">
-    <h1 class="text-4xl font-bold mb-2">💰 Finance Basics</h1>
-    <p class="text-gray-600">
-      Learn saving, budgeting, and money concepts step by step.
-    </p>
-  </div>
-</section>
-
-<!-- SEARCH -->
-<section class="max-w-7xl mx-auto px-6 mt-8">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search finance articles..."
-    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring"
-  />
-</section>
-
-<!-- POSTS -->
-<section class="max-w-7xl mx-auto px-6 py-10">
-  <div id="posts" class="grid md:grid-cols-3 gap-6">
-    <p>Loading finance articles...</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-white border-t mt-16">
-  <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-500 text-center">
-    © 2025 SimpleTechFinance
-  </div>
+<footer class="bg-white border-t text-center py-6 text-sm text-gray-500">
+  © 2025 SimpleTechFinance
 </footer>
 
 <script>
-let allPosts = [];
-
 fetch('posts.json')
-  .then(res => res.json())
+  .then(r => r.json())
   .then(posts => {
-    allPosts = posts.filter(p => p.category === 'Finance Basics');
-    renderPosts(allPosts);
+    const el = document.getElementById('tech-posts');
+    el.innerHTML = '';
+    posts.filter(p => p.category === 'Finance Basics')
+      .forEach(p => {
+        el.innerHTML += `
+          <div class="bg-white p-5 rounded-xl shadow">
+            <h3 class="font-semibold mb-2">${p.title}</h3>
+            <p class="text-sm text-gray-600 mb-3">${p.summary}</p>
+            <a href="post.html?id=${p.id}" class="text-blue-600 text-sm">Read →</a>
+          </div>`;
+      });
   });
 
-function renderPosts(posts) {
-  const container = document.getElementById('posts');
-  container.innerHTML = '';
-
-  posts.forEach(post => {
-    const card = document.createElement('div');
-    card.className = 'bg-white rounded-xl shadow p-6';
-
-    card.innerHTML = `
-      <span class="text-xs px-3 py-1 rounded-full bg-green-100 text-green-600">
-        Finance Basics
-      </span>
-      <h3 class="text-xl font-bold mt-4 mb-2">${post.title}</h3>
-      <p class="text-gray-600 mb-4">${post.summary}</p>
-      <a href="post.html?id=${post.id}" class="text-green-600 font-medium">
-        Read Post →
-      </a>
-    `;
-
-    container.appendChild(card);
-  });
-}
-
-document.getElementById('searchInput').addEventListener('input', e => {
-  const q = e.target.value.toLowerCase();
-  const filtered = allPosts.filter(p =>
-    p.title.toLowerCase().includes(q) ||
-    p.summary.toLowerCase().includes(q) ||
-    (p.content && p.content.toLowerCase().includes(q))
-  );
-  renderPosts(filtered);
+document.getElementById('menu-btn')?.addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.toggle('hidden');
 });
 </script>
-
 </body>
 </html>
