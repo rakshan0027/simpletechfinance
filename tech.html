@@ -80,5 +80,23 @@ document.getElementById('menu-btn')?.addEventListener('click', () => {
   document.getElementById('mobile-menu').classList.toggle('hidden');
 });
 </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (!menuBtn || !mobileMenu) return;
+
+  menuBtn.addEventListener('click', function () {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Extra support for mobile touch
+  menuBtn.addEventListener('touchstart', function () {
+    mobileMenu.classList.toggle('hidden');
+  });
+});
+</script>
+
 </body>
 </html>
