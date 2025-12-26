@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Article – SimpleTechFinance</title>
-  <meta name="description" content="SimpleTechFinance article" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-50">
 
-<body class="bg-gray-50 text-slate-800">
-
-<!-- Progress Bar -->
 <div class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
   <div id="progress-bar" class="h-1 bg-blue-600 w-0"></div>
 </div>
 
-<!-- NAVBAR (same as index) -->
+<!-- NAVBAR -->
+<!-- NAVBAR -->
 <header class="bg-white shadow">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <div class="text-xl font-bold">
       <span class="text-blue-600">SimpleTech</span>
       <span class="text-green-600">Finance</span>
     </div>
+
     <nav class="hidden md:flex space-x-6 text-sm">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="font-medium">Home</a>
       <a href="tech.html">Tech News</a>
       <a href="finance.html">Finance Basics</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
+
+    <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
+    <a href="index.html" class="block">Home</a>
+    <a href="tech.html" class="block">Tech News</a>
+    <a href="finance.html" class="block">Finance Basics</a>
+    <a href="about.html" class="block">About</a>
+    <a href="contact.html" class="block">Contact</a>
+    <a href="privacy.html" class="block text-gray-500">Privacy Policy</a>
+    <a href="disclaimer.html" class="block text-gray-500">Disclaimer</a>
   </div>
 </header>
+<!-- (PASTE SAME NAVBAR FROM index.html HERE) -->
 
-<!-- ARTICLE -->
-<main class="max-w-3xl mx-auto px-4 md:px-6 py-12 bg-white mt-8 rounded-xl shadow">
-  <span id="post-category" class="inline-block text-xs px-3 py-1 rounded-full mb-4"></span>
-  <h1 id="post-title" class="text-3xl md:text-4xl font-bold mb-4">Loading…</h1>
+<main class="max-w-3xl mx-auto px-4 py-12 bg-white mt-8 rounded-xl shadow">
+  <span id="post-category" class="text-xs px-3 py-1 rounded-full"></span>
+  <h1 id="post-title" class="text-3xl md:text-4xl font-bold mt-4"></h1>
   <p id="post-date" class="text-sm text-gray-500 mb-6"></p>
 
   <article id="post-content"
-    class="leading-7 text-gray-700
-    [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4
-    [&>p]:mb-4 [&>ul]:list-disc [&>ul]:pl-6">
-  </article>
+    class="[&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8
+           [&>p]:mb-4 text-gray-700 leading-7"></article>
 </main>
-
-<!-- RELATED POSTS -->
-<section class="max-w-3xl mx-auto px-4 mt-12">
-  <h3 class="text-xl font-bold mb-4">Related Posts</h3>
-  <div id="related-posts" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-</section>
 
 <footer class="bg-white border-t mt-16 text-center py-6 text-sm text-gray-500">
   © 2025 SimpleTechFinance
@@ -62,7 +67,6 @@ fetch('posts.json')
     const post = posts.find(p => p.id === id);
     if (!post) return;
 
-    document.title = post.title;
     document.getElementById('post-title').innerText = post.title;
     document.getElementById('post-date').innerText = post.date;
     document.getElementById('post-content').innerHTML = post.content;
@@ -72,22 +76,13 @@ fetch('posts.json')
     cat.className += post.category === 'Tech News'
       ? ' bg-blue-100 text-blue-600'
       : ' bg-green-100 text-green-600';
-
-    const related = posts.filter(p => p.category === post.category && p.id !== post.id).slice(0,2);
-    document.getElementById('related-posts').innerHTML =
-      related.map(r => `
-        <div class="bg-white p-4 rounded-xl shadow">
-          <h4 class="font-semibold mb-2">${r.title}</h4>
-          <a href="post.html?id=${r.id}" class="text-blue-600 text-sm">Read →</a>
-        </div>`).join('');
   });
 
 window.addEventListener('scroll', () => {
   const s = document.documentElement.scrollTop;
   const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  document.getElementById('progress-bar').style.width = (s / h) * 100 + '%';
+  document.getElementById('progress-bar').style.width = (s/h)*100 + '%';
 });
 </script>
-
 </body>
 </html>
