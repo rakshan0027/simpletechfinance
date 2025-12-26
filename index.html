@@ -86,12 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!menuBtn || !mobileMenu) return;
 
-  menuBtn.addEventListener('click', function () {
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  // Extra support for mobile touch
-  menuBtn.addEventListener('touchstart', function () {
+  menuBtn.addEventListener('click', function (e) {
+    e.preventDefault();
     mobileMenu.classList.toggle('hidden');
   });
 });
