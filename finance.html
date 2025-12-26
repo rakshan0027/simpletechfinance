@@ -60,6 +60,41 @@
 </footer>
 
 <script>
+fetch('posts.json')
+  .then(res => res.json())
+  .then(posts => {
+    const container = document.getElementById('finance-posts');
+    container.innerHTML = '';
+
+    const financePosts = posts.filter(
+      post => post.category === 'Finance Basics'
+    );
+
+    if (financePosts.length === 0) {
+      container.innerHTML = '<p>No finance posts found.</p>';
+      return;
+    }
+
+    financePosts.forEach(post => {
+      container.innerHTML += `
+        <div class="bg-white p-5 rounded-xl shadow">
+          <h3 class="font-semibold mb-2">${post.title}</h3>
+          <p class="text-sm text-gray-600 mb-3">${post.summary}</p>
+          <a href="post.html?id=${post.id}" class="text-green-600 text-sm">
+            Read →
+          </a>
+        </div>
+      `;
+    });
+  })
+  .catch(err => {
+    document.getElementById('finance-posts').innerHTML =
+      '<p class="text-red-500">Error loading posts.</p>';
+    console.error(err);
+  });
+</script>
+
+<script>
 document.addEventListener('DOMContentLoaded', function () {
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
