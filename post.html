@@ -67,30 +67,22 @@
 </footer>
 
 <script>
-const id = Number(new URLSearchParams(location.search).get('id'));
+document.addEventListener('DOMContentLoaded', function () {
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-fetch('posts.json')
-  .then(r => r.json())
-  .then(posts => {
-    const post = posts.find(p => p.id === id);
-    if (!post) return;
+  if (!menuBtn || !mobileMenu) return;
 
-    document.getElementById('post-title').innerText = post.title;
-    document.getElementById('post-date').innerText = post.date;
-    document.getElementById('post-content').innerHTML = post.content;
-
-    const cat = document.getElementById('post-category');
-    cat.innerText = post.category;
-    cat.className += post.category === 'Tech News'
-      ? ' bg-blue-100 text-blue-600'
-      : ' bg-green-100 text-green-600';
+  menuBtn.addEventListener('click', function () {
+    mobileMenu.classList.toggle('hidden');
   });
 
-window.addEventListener('scroll', () => {
-  const s = document.documentElement.scrollTop;
-  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  document.getElementById('progress-bar').style.width = (s/h)*100 + '%';
+  // Extra support for mobile touch
+  menuBtn.addEventListener('touchstart', function () {
+    mobileMenu.classList.toggle('hidden');
+  });
 });
 </script>
+
 </body>
 </html>
