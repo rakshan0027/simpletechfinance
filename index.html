@@ -7,6 +7,7 @@
   <meta name="description" content="SimpleTechFinance explains Tech News and Finance Basics in simple English.">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 text-slate-800">
 
 <!-- NAVBAR -->
@@ -19,7 +20,7 @@
 
     <!-- Desktop Menu -->
     <nav class="hidden md:flex space-x-6 text-sm">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="font-medium">Home</a>
       <a href="tech.html">Tech News</a>
       <a href="finance.html">Finance Basics</a>
       <a href="about.html">About</a>
@@ -39,7 +40,7 @@
   <div
     id="mobile-menu"
     class="hidden md:hidden bg-white px-4 pb-4 space-y-2 border-t">
-    <a href="index.html" class="block py-2">Home</a>
+    <a href="index.html" class="block py-2 font-medium">Home</a>
     <a href="tech.html" class="block py-2">Tech News</a>
     <a href="finance.html" class="block py-2">Finance Basics</a>
     <a href="about.html" class="block py-2">About</a>
@@ -59,15 +60,22 @@
   </p>
 
   <div class="flex flex-col md:flex-row gap-4 justify-center">
-    <a href="tech.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg">Tech News</a>
-    <a href="finance.html" class="bg-green-100 text-green-700 px-6 py-3 rounded-lg">Finance Basics</a>
+    <a href="tech.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg">
+      Tech News
+    </a>
+    <a href="finance.html" class="bg-green-100 text-green-700 px-6 py-3 rounded-lg">
+      Finance Basics
+    </a>
   </div>
 </section>
 
 <!-- POSTS -->
 <section class="max-w-7xl mx-auto px-4 pb-16">
   <h2 class="text-2xl font-bold mb-6">Latest Posts</h2>
-  <div id="posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+  <div
+    id="posts"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <p>Loading...</p>
   </div>
 </section>
@@ -79,6 +87,7 @@
   <a href="disclaimer.html">Disclaimer</a>
 </footer>
 
+<!-- MOBILE MENU SCRIPT -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const menuBtn = document.getElementById('menu-btn');
@@ -93,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<script>
+<!-- LOAD POSTS SCRIPT -->
 <script>
 fetch('posts.json')
   .then(response => {
@@ -123,7 +132,8 @@ fetch('posts.json')
           <h3 class="font-semibold mt-3 mb-2">${post.title}</h3>
           <p class="text-sm text-gray-600 mb-3">${post.summary}</p>
 
-          <a href="post.html?id=${post.id}" class="text-blue-600 text-sm">
+          <a href="post.html?id=${post.id}"
+             class="text-blue-600 text-sm font-medium">
             Read →
           </a>
         </div>
@@ -136,8 +146,6 @@ fetch('posts.json')
     console.error(error);
   });
 </script>
-</script>
-
 
 </body>
 </html>
