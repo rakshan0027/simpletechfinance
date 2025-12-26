@@ -60,25 +60,22 @@
 </footer>
 
 <script>
-fetch('posts.json')
-  .then(r => r.json())
-  .then(posts => {
-    const el = document.getElementById('tech-posts');
-    el.innerHTML = '';
-    posts.filter(p => p.category === 'Finance Basics')
-      .forEach(p => {
-        el.innerHTML += `
-          <div class="bg-white p-5 rounded-xl shadow">
-            <h3 class="font-semibold mb-2">${p.title}</h3>
-            <p class="text-sm text-gray-600 mb-3">${p.summary}</p>
-            <a href="post.html?id=${p.id}" class="text-blue-600 text-sm">Read →</a>
-          </div>`;
-      });
+document.addEventListener('DOMContentLoaded', function () {
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (!menuBtn || !mobileMenu) return;
+
+  menuBtn.addEventListener('click', function () {
+    mobileMenu.classList.toggle('hidden');
   });
 
-document.getElementById('menu-btn')?.addEventListener('click', () => {
-  document.getElementById('mobile-menu').classList.toggle('hidden');
+  // Extra support for mobile touch
+  menuBtn.addEventListener('touchstart', function () {
+    mobileMenu.classList.toggle('hidden');
+  });
 });
 </script>
+
 </body>
 </html>
