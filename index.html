@@ -93,5 +93,51 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script>
+<script>
+fetch('posts.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to load posts.json');
+    }
+    return response.json();
+  })
+  .then(posts => {
+    const container = document.getElementById('posts');
+    container.innerHTML = '';
+
+    if (!posts || posts.length === 0) {
+      container.innerHTML = '<p>No posts available.</p>';
+      return;
+    }
+
+    posts.forEach(post => {
+      container.innerHTML += `
+        <div class="bg-white p-5 rounded-xl shadow">
+          <span class="text-xs px-2 py-1 rounded-full ${
+            post.category === 'Tech News'
+              ? 'bg-blue-100 text-blue-600'
+              : 'bg-green-100 text-green-600'
+          }">${post.category}</span>
+
+          <h3 class="font-semibold mt-3 mb-2">${post.title}</h3>
+          <p class="text-sm text-gray-600 mb-3">${post.summary}</p>
+
+          <a href="post.html?id=${post.id}" class="text-blue-600 text-sm">
+            Read →
+          </a>
+        </div>
+      `;
+    });
+  })
+  .catch(error => {
+    document.getElementById('posts').innerHTML =
+      '<p class="text-red-500">Error loading posts.</p>';
+    console.error(error);
+  });
+</script>
+</script>
+
+
 </body>
 </html>
