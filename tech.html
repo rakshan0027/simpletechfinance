@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <title>Tech News – SimpleTechFinance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Latest tech news explained simply for beginners.">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50">
+
+<body class="bg-gray-50 text-slate-800">
 
 <!-- NAVBAR -->
 <header class="bg-white shadow relative z-50">
@@ -19,7 +21,7 @@
     <!-- Desktop Menu -->
     <nav class="hidden md:flex space-x-6 text-sm">
       <a href="index.html">Home</a>
-      <a href="tech.html">Tech News</a>
+      <a href="tech.html" class="font-medium">Tech News</a>
       <a href="finance.html">Finance Basics</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -39,7 +41,7 @@
     id="mobile-menu"
     class="hidden md:hidden bg-white px-4 pb-4 space-y-2 border-t">
     <a href="index.html" class="block py-2">Home</a>
-    <a href="tech.html" class="block py-2">Tech News</a>
+    <a href="tech.html" class="block py-2 font-medium">Tech News</a>
     <a href="finance.html" class="block py-2">Finance Basics</a>
     <a href="about.html" class="block py-2">About</a>
     <a href="contact.html" class="block py-2">Contact</a>
@@ -48,20 +50,54 @@
   </div>
 </header>
 
-<main class="max-w-7xl mx-auto px-4 py-12">
-  <h1 class="text-3xl font-bold mb-6">Tech News</h1>
-  <div id="tech-posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- PAGE HEADER -->
+<section class="max-w-7xl mx-auto px-4 py-12">
+  <h1 class="text-3xl font-bold mb-2">Tech News</h1>
+  <p class="text-gray-600">
+    Beginner-friendly explanations of the latest technology trends.
+  </p>
+</section>
+
+<!-- POSTS -->
+<section class="max-w-7xl mx-auto px-4 pb-16">
+  <div
+    id="tech-posts"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <p>Loading...</p>
   </div>
-</main>
+</section>
 
+<!-- FOOTER -->
 <footer class="bg-white border-t text-center py-6 text-sm text-gray-500">
-  © 2025 SimpleTechFinance
+  © 2025 SimpleTechFinance ·
+  <a href="privacy.html">Privacy</a> ·
+  <a href="disclaimer.html">Disclaimer</a>
 </footer>
 
+<!-- MOBILE MENU SCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (!menuBtn || !mobileMenu) return;
+
+  menuBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    mobileMenu.classList.toggle('hidden');
+  });
+});
+</script>
+
+<!-- LOAD TECH POSTS -->
 <script>
 fetch('posts.json')
-  .then(res => res.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to load posts.json');
+    }
+    return response.json();
+  })
   .then(posts => {
     const container = document.getElementById('tech-posts');
     container.innerHTML = '';
@@ -71,45 +107,33 @@ fetch('posts.json')
     );
 
     if (techPosts.length === 0) {
-      container.innerHTML = '<p>No tech posts found.</p>';
+      container.innerHTML = '<p>No tech posts available.</p>';
       return;
     }
 
     techPosts.forEach(post => {
       container.innerHTML += `
         <div class="bg-white p-5 rounded-xl shadow">
-          <h3 class="font-semibold mb-2">${post.title}</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600">
+            Tech News
+          </span>
+
+          <h3 class="font-semibold mt-3 mb-2">${post.title}</h3>
           <p class="text-sm text-gray-600 mb-3">${post.summary}</p>
-          <a href="post.html?id=${post.id}" class="text-blue-600 text-sm">
+
+          <a href="post.html?id=${post.id}"
+             class="text-blue-600 text-sm font-medium">
             Read →
           </a>
         </div>
       `;
     });
   })
-  .catch(err => {
+  .catch(error => {
     document.getElementById('tech-posts').innerHTML =
-      '<p class="text-red-500">Error loading posts.</p>';
-    console.error(err);
+      '<p class="text-red-500">Error loading tech posts.</p>';
+    console.error(error);
   });
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (!menuBtn || !mobileMenu) return;
-
-  menuBtn.addEventListener('click', function () {
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  // Extra support for mobile touch
-  menuBtn.addEventListener('touchstart', function () {
-    mobileMenu.classList.toggle('hidden');
-  });
-});
 </script>
 
 </body>
