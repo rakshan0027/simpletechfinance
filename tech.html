@@ -61,26 +61,40 @@
 
 <script>
 fetch('posts.json')
-  .then(r => r.json())
+  .then(res => res.json())
   .then(posts => {
-    const el = document.getElementById('tech-posts');
-    el.innerHTML = '';
-    posts.filter(p => p.category === 'Tech News')
-      .forEach(p => {
-        el.innerHTML += `
-          <div class="bg-white p-5 rounded-xl shadow">
-            <h3 class="font-semibold mb-2">${p.title}</h3>
-            <p class="text-sm text-gray-600 mb-3">${p.summary}</p>
-            <a href="post.html?id=${p.id}" class="text-blue-600 text-sm">Read →</a>
-          </div>`;
-      });
-  });
+    const container = document.getElementById('tech-posts');
+    container.innerHTML = '';
 
-document.getElementById('menu-btn')?.addEventListener('click', () => {
-  document.getElementById('mobile-menu').classList.toggle('hidden');
-});
+    const techPosts = posts.filter(
+      post => post.category === 'Tech News'
+    );
+
+    if (techPosts.length === 0) {
+      container.innerHTML = '<p>No tech posts found.</p>';
+      return;
+    }
+
+    techPosts.forEach(post => {
+      container.innerHTML += `
+        <div class="bg-white p-5 rounded-xl shadow">
+          <h3 class="font-semibold mb-2">${post.title}</h3>
+          <p class="text-sm text-gray-600 mb-3">${post.summary}</p>
+          <a href="post.html?id=${post.id}" class="text-blue-600 text-sm">
+            Read →
+          </a>
+        </div>
+      `;
+    });
+  })
+  .catch(err => {
+    document.getElementById('tech-posts').innerHTML =
+      '<p class="text-red-500">Error loading posts.</p>';
+    console.error(err);
+  });
 </script>
-  <script>
+
+<script>
 document.addEventListener('DOMContentLoaded', function () {
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
