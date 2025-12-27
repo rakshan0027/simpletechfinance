@@ -1,5 +1,5 @@
-import fs from "fs";
-import fetch from "node-fetch";
+const fs = require("fs");
+const fetch = require("node-fetch");
 
 const API_KEY = process.env.GEMINI_API_KEY;
 
@@ -37,7 +37,8 @@ async function generatePost() {
   const text = data.candidates[0].content.parts[0].text;
 
   const newPost = JSON.parse(text);
-  const posts = JSON.parse(fs.readFileSync("posts.json"));
+
+  const posts = JSON.parse(fs.readFileSync("posts.json", "utf-8"));
 
   newPost.id = posts.length + 1;
   posts.unshift(newPost);
@@ -45,4 +46,7 @@ async function generatePost() {
   fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2));
 }
 
-generatePost();
+generatePost().catch(err => {
+  console.error("Error generating post:", err);
+  process.exit(1);
+});
