@@ -1,8 +1,8 @@
-name: Auto Publish AI Post
+name: Auto Publish AI Posts
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 6 * * *"   # every day
   workflow_dispatch:
 
 jobs:
@@ -21,15 +21,15 @@ jobs:
       - name: Install dependencies
         run: npm install node-fetch@2
 
-      - name: Generate AI Post
+      - name: Generate AI Posts
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node generate_post.js
 
       - name: Commit and push
         run: |
-          git config user.name "AI Bot"
-          git config user.email "ai@simpletechfinance.com"
+          git config user.name "rakshan0027"
+          git config user.email "198556807+rakshan0027@users.noreply.github.com"
           git add posts.json
-          git commit -m "🤖 Auto AI post"
+          git commit -m "🤖 Auto-published Tech + Finance post"
           git push
