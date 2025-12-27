@@ -11,7 +11,7 @@
 <body class="bg-gray-50 text-slate-800">
 
 <!-- NAVBAR -->
-<header class="bg-white shadow relative z-50">
+<header class="bg-white shadow sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <div class="text-xl font-bold">
       <span class="text-blue-600">SimpleTech</span>
@@ -30,16 +30,14 @@
     <!-- Mobile Button -->
     <button
       id="menu-btn"
-      class="md:hidden text-2xl p-2 focus:outline-none"
-      aria-label="Open menu">
+      class="md:hidden text-2xl p-2"
+      aria-label="Menu">
       ☰
     </button>
   </div>
 
   <!-- Mobile Menu -->
-  <div
-    id="mobile-menu"
-    class="hidden md:hidden bg-white px-4 pb-4 space-y-2 border-t">
+  <div id="mobile-menu" class="hidden bg-white border-t px-4 pb-4">
     <a href="index.html" class="block py-2 font-medium">Home</a>
     <a href="tech.html" class="block py-2">Tech News</a>
     <a href="finance.html" class="block py-2">Finance Basics</a>
@@ -51,8 +49,8 @@
 </header>
 
 <!-- HERO -->
-<section class="max-w-7xl mx-auto px-4 py-20 text-center">
-  <h1 class="text-3xl md:text-5xl font-bold mb-6">
+<section class="max-w-7xl mx-auto px-4 py-16 text-center">
+  <h1 class="text-3xl md:text-5xl font-bold mb-4">
     Tech & Money, <span class="text-blue-600">Simplified.</span>
   </h1>
   <p class="text-gray-600 max-w-2xl mx-auto mb-8">
@@ -73,10 +71,8 @@
 <section class="max-w-7xl mx-auto px-4 pb-16">
   <h2 class="text-2xl font-bold mb-6">Latest Posts</h2>
 
-  <div
-    id="posts"
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <p>Loading...</p>
+  <div id="posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <p id="loading">Loading...</p>
   </div>
 </section>
 
@@ -89,61 +85,47 @@
 
 <!-- MOBILE MENU SCRIPT -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (!menuBtn || !mobileMenu) return;
-
-  menuBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    mobileMenu.classList.toggle('hidden');
-  });
+document.getElementById('menu-btn').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.toggle('hidden');
 });
 </script>
 
-<!-- LOAD POSTS SCRIPT -->
+<!-- POSTS SCRIPT (MOBILE SAFE) -->
 <script>
 fetch('posts.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to load posts.json');
-    }
-    return response.json();
-  })
+  .then(res => res.json())
   .then(posts => {
     const container = document.getElementById('posts');
     container.innerHTML = '';
 
-    if (!posts || posts.length === 0) {
-      container.innerHTML = '<p>No posts available.</p>';
-      return;
-    }
-
     posts.forEach(post => {
-      container.innerHTML += `
-  <div 
-    onclick="location.href='post.html?id=${post.id}'"
-    class="bg-white p-5 rounded-xl shadow cursor-pointer transition active:scale-[0.98]"
-  >
-    <span class="text-xs px-2 py-1 rounded-full ${
-      post.category === 'Tech News'
-        ? 'bg-blue-100 text-blue-600'
-        : 'bg-green-100 text-green-600'
-    }">${post.category}</span>
+      const card = document.createElement('div');
+      card.className =
+        'bg-white p-5 rounded-xl shadow cursor-pointer active:scale-[0.97] transition';
+      card.onclick = () => {
+        window.location.href = `post.html?id=${post.id}`;
+      };
 
-    <h3 class="font-semibold mt-3 mb-2">${post.title}</h3>
-    <p class="text-sm text-gray-600 mb-3">${post.summary}</p>
+      card.innerHTML = `
+        <span class="text-xs px-2 py-1 rounded-full ${
+          post.category === 'Tech News'
+            ? 'bg-blue-100 text-blue-600'
+            : 'bg-green-100 text-green-600'
+        }">${post.category}</span>
 
-    <span class="text-blue-600 text-sm font-medium">Read →</span>
-  </div>
-`;
+        <h3 class="font-semibold mt-3 mb-2">${post.title}</h3>
+        <p class="text-sm text-gray-600 mb-3">${post.summary}</p>
+
+        <span class="text-blue-600 text-sm font-medium">Read →</span>
+      `;
+
+      container.appendChild(card);
     });
   })
-  .catch(error => {
+  .catch(err => {
     document.getElementById('posts').innerHTML =
-      '<p class="text-red-500">Error loading posts.</p>';
-    console.error(error);
+      '<p class="text-red-500">Failed to load posts.</p>';
+    console.error(err);
   });
 </script>
 
