@@ -122,7 +122,10 @@ fetch('posts.json')
 
     posts.forEach(post => {
       container.innerHTML += `
-        <div class="bg-white p-5 rounded-xl shadow">
+  <div 
+    onclick="location.href='post.html?id=${post.id}'"
+    class="bg-white p-5 rounded-xl shadow cursor-pointer active:scale-[0.99] transition"
+  >
           <span class="text-xs px-2 py-1 rounded-full ${
             post.category === 'Tech News'
               ? 'bg-blue-100 text-blue-600'
