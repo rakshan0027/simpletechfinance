@@ -2,51 +2,73 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 
 const API_KEY = process.env.GEMINI_API_KEY;
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
 
-const prompt = `
-Generate ONE blog post as JSON only.
+async function generate(category) {
+  const prompt = `
+Generate ONE blog post as VALID JSON ONLY.
+
+Category: ${category}
 
 Rules:
-- Category: "Tech News" or "Finance Basics"
 - Beginner friendly
 - Simple English
-- Include:
-  id (number),
+- Include fields:
   title,
   category,
   date (YYYY-MM-DD),
   summary,
-  content (HTML with h2 and p)
+  content (HTML using h2 and p)
 
-Return ONLY JSON object.
+Return ONLY JSON. No markdown. No explanation.
 `;
 
-async function generatePost() {
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
-      })
-    }
-  );
+  const res = await fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }]
+    })
+  });
 
   const data = await res.json();
-  const text = data.candidates[0].content.parts[0].text;
 
-  const newPost = JSON.parse(text);
+  if (
+    !data.candidates ||
+    !data.candidates[0] ||
+    !data.candidates[0].content ||
+    !data.candidates[0].content.parts ||
+    !data.candidates[0].content.parts[0]
+  ) {
+    throw new Error("Gemini returned empty response");
+  }
 
-  const posts = JSON.parse(fs.readFileSync("posts.json", "utf-8"));
-
-  newPost.id = posts.length + 1;
-  posts.unshift(newPost);
-
-  fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2));
+  return JSON.parse(data.candidates[0].content.parts[0].text);
 }
 
-generatePost().catch(err => {
-  console.error("Error generating post:", err);
-  process.exit(1);
-});
+(async () => {
+  try {
+    const posts = JSON.parse(fs.readFileSync("posts.json", "utf-8"));
+
+    const techPost = await generate("Tech News");
+    const financePost = await generate("Finance Basics");
+
+    const today = new Date().toISOString().split("T")[0];
+
+    techPost.id = posts.length + 1;
+    techPost.date = today;
+
+    financePost.id = posts.length + 2;
+    financePost.date = today;
+
+    posts.unshift(financePost);
+    posts.unshift(techPost);
+
+    fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2));
+    console.log("✅ 2 posts published successfully");
+
+  } catch (err) {
+    console.error("❌ Error generating posts:", err.message);
+    process.exit(1);
+  }
+})();
