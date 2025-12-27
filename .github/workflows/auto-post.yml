@@ -2,7 +2,7 @@ name: Auto Publish AI Post
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # daily at 6 AM UTC
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install node-fetch
+        run: npm install node-fetch@2
 
       - name: Generate AI Post
         env:
