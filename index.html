@@ -89,7 +89,11 @@ const perPage = 6;
 
 fetch("posts.json")
   .then(r => r.json())
-  .then(d => { allPosts = d; filteredPosts = d; render(); });
+  .then(d => {
+  allPosts = d.sort((a, b) => new Date(b.date) - new Date(a.date));
+  filteredPosts = allPosts;
+  render();
+});
 
 function render() {
   const posts = document.getElementById("posts");
