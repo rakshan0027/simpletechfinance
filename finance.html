@@ -19,7 +19,10 @@
 fetch("posts.json")
   .then(r => r.json())
   .then(posts => {
-    posts.filter(p => p.category === "Finance Basics").forEach(p => {
+  posts
+    .filter(p => p.category === "Finance Basics")
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .forEach(p => {
       document.getElementById("posts").innerHTML += `
       <div class="bg-white p-5 rounded shadow">
         <h2 class="font-bold">${p.title}</h2>
