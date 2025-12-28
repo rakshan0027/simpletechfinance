@@ -1,158 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
-  <title>SimpleTechFinance – Tech News & Finance Basics in Simple English</title>
-
-  <meta name="description" content="SimpleTechFinance explains Tech News and Finance Basics in simple English for students and beginners.">
-  <meta name="keywords" content="tech news, finance basics, AI, inflation, budgeting, technology for beginners">
-  <meta name="author" content="SimpleTechFinance">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://simpletechfinance.site/">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="SimpleTechFinance">
-  <meta property="og:description" content="Tech News & Finance Basics explained simply for beginners.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://simpletechfinance.site/">
-  <meta property="og:image" content="https://simpletechfinance.site/og-image.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<title>Tech News – SimpleTechFinance</title>
+<meta name="description" content="Latest technology news explained simply for beginners.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://simpletechfinance.site/tech.html">
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-50 text-slate-800">
 
-<!-- NAVBAR -->
-<header class="bg-white shadow relative z-50">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <div class="text-xl font-bold">
-      <span class="text-blue-600">SimpleTech</span>
-      <span class="text-green-600">Finance</span>
-    </div>
+<h1 class="text-3xl font-bold text-center my-10">Tech News</h1>
 
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-6 text-sm">
-      <a href="index.html">Home</a>
-      <a href="tech.html" class="font-medium">Tech News</a>
-      <a href="finance.html">Finance Basics</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<div id="posts" class="max-w-5xl mx-auto grid gap-6 px-4"></div>
 
-    <!-- Mobile Button -->
-    <button
-      id="menu-btn"
-      class="md:hidden text-2xl p-2 focus:outline-none"
-      aria-label="Open menu">
-      ☰
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div
-    id="mobile-menu"
-    class="hidden md:hidden bg-white px-4 pb-4 space-y-2 border-t">
-    <a href="index.html" class="block py-2">Home</a>
-    <a href="tech.html" class="block py-2 font-medium">Tech News</a>
-    <a href="finance.html" class="block py-2">Finance Basics</a>
-    <a href="about.html" class="block py-2">About</a>
-    <a href="contact.html" class="block py-2">Contact</a>
-    <a href="privacy.html" class="block py-2 text-gray-500">Privacy Policy</a>
-    <a href="disclaimer.html" class="block py-2 text-gray-500">Disclaimer</a>
-  </div>
-</header>
-
-<!-- PAGE HEADER -->
-<section class="max-w-7xl mx-auto px-4 py-12">
-  <h1 class="text-3xl font-bold mb-2">Tech News</h1>
-  <p class="text-gray-600">
-    Beginner-friendly explanations of the latest technology trends.
-  </p>
-</section>
-
-<!-- POSTS -->
-<section class="max-w-7xl mx-auto px-4 pb-16">
-  <div
-    id="tech-posts"
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <p>Loading...</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-white border-t text-center py-6 text-sm text-gray-500">
-  © 2025 SimpleTechFinance ·
-  <a href="privacy.html">Privacy</a> ·
-  <a href="disclaimer.html">Disclaimer</a>
-</footer>
-
-<!-- MOBILE MENU SCRIPT -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (!menuBtn || !mobileMenu) return;
-
-  menuBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    mobileMenu.classList.toggle('hidden');
-  });
-});
-</script>
-
-<!-- LOAD TECH POSTS -->
-<script>
-fetch('posts.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to load posts.json');
-    }
-    return response.json();
-  })
+fetch("posts.json")
+  .then(r => r.json())
   .then(posts => {
-    const container = document.getElementById('tech-posts');
-    container.innerHTML = '';
-
-    const techPosts = posts.filter(
-      post => post.category === 'Tech News'
-    );
-
-    if (techPosts.length === 0) {
-      container.innerHTML = '<p>No tech posts available.</p>';
-      return;
-    }
-
-    techPosts.forEach(post => {
-      container.innerHTML += `
-        <div class="bg-white p-5 rounded-xl shadow">
-          <span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600">
-            Tech News
-          </span>
-
-          <h3 class="font-semibold mt-3 mb-2">${post.title}</h3>
-          <p class="text-sm text-gray-600 mb-3">${post.summary}</p>
-
-          <a href="post.html?id=${post.id}"
-             class="text-blue-600 text-sm font-medium">
-            Read →
-          </a>
-        </div>
-      `;
+    posts.filter(p => p.category === "Tech News").forEach(p => {
+      document.getElementById("posts").innerHTML += `
+      <div class="bg-white p-5 rounded shadow">
+        <h2 class="font-bold">${p.title}</h2>
+        <p class="text-sm text-gray-600">${p.summary}</p>
+        <a href="post.html?id=${p.id}" class="text-blue-600">Read →</a>
+      </div>`;
     });
-  })
-  .catch(error => {
-    document.getElementById('tech-posts').innerHTML =
-      '<p class="text-red-500">Error loading tech posts.</p>';
-    console.error(error);
   });
 </script>
 
