@@ -3,230 +3,133 @@
 <head>
   <meta charset="UTF-8">
 
-  <title>SimpleTechFinance – Tech News & Finance Basics in Simple English</title>
+  <title>Article – SimpleTechFinance</title>
 
-  <meta name="description" content="SimpleTechFinance explains Tech News and Finance Basics in simple English for students and beginners.">
-  <meta name="keywords" content="tech news, finance basics, AI, inflation, budgeting, technology for beginners">
-  <meta name="author" content="SimpleTechFinance">
-
+  <meta name="description" content="Read beginner-friendly tech news and finance basics on SimpleTechFinance.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://simpletechfinance.site/">
+  <!-- Canonical (updated by JS) -->
+  <link rel="canonical" href="">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="SimpleTechFinance">
-  <meta property="og:description" content="Tech News & Finance Basics explained simply for beginners.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://simpletechfinance.site/">
-  <meta property="og:image" content="https://simpletechfinance.site/og-image.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Tailwind -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-50 text-slate-800">
 
-<!-- Reading Progress Bar -->
-<div id="progress-container" class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
-  <div id="progress-bar" class="h-1 bg-blue-600 w-0"></div>
-</div>
-
 <!-- NAVBAR -->
-<header class="bg-white shadow">
+<header class="bg-white shadow sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <div class="text-xl font-bold">
-      <a href="index.html" class="flex items-center gap-1">
-        <span class="text-blue-600">SimpleTech</span>
-        <span class="text-green-600">Finance</span>
-      </a>
+      <span class="text-blue-600">SimpleTech</span>
+      <span class="text-green-600">Finance</span>
     </div>
 
     <nav class="hidden md:flex space-x-6 text-sm">
-      <a href="index.html" class="font-medium">Home</a>
+      <a href="index.html">Home</a>
       <a href="tech.html">Tech News</a>
       <a href="finance.html">Finance Basics</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="privacy.html" class="text-gray-500">Privacy</a>
-      <a href="disclaimer.html" class="text-gray-500">Disclaimer</a>
     </nav>
-
-    <button id="menu-btn" class="md:hidden text-2xl p-2" aria-label="Open menu">☰</button>
-  </div>
-
-  <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pb-4 space-y-2 border-t">
-    <a href="index.html" class="block py-2">Home</a>
-    <a href="tech.html" class="block py-2">Tech News</a>
-    <a href="finance.html" class="block py-2">Finance Basics</a>
-    <a href="about.html" class="block py-2">About</a>
-    <a href="contact.html" class="block py-2">Contact</a>
-    <a href="privacy.html" class="block py-2 text-gray-500">Privacy Policy</a>
-    <a href="disclaimer.html" class="block py-2 text-gray-500">Disclaimer</a>
   </div>
 </header>
 
-<main class="max-w-3xl mx-auto px-4 py-12 bg-white mt-8 rounded-xl shadow">
+<!-- ARTICLE -->
+<main class="max-w-3xl mx-auto px-4 py-10 bg-white mt-6 rounded-xl shadow">
 
   <!-- CATEGORY -->
-  <span id="post-category" class="inline-block text-xs px-3 py-1 rounded-full mb-4"></span>
+  <span
+    id="post-category"
+    class="inline-block text-xs px-3 py-1 rounded-full mb-4 bg-blue-100 text-blue-600">
+    Loading...
+  </span>
 
-  <!-- H1 TITLE -->
-  <h1 id="post-title" class="text-3xl md:text-4xl font-bold mb-4">
-    Loading title...
+  <!-- TITLE -->
+  <h1 id="post-title" class="text-3xl md:text-4xl font-bold mb-3">
+    Loading...
   </h1>
 
   <!-- DATE -->
   <p id="post-date" class="text-sm text-gray-500 mb-6">
-    Loading date...
+    Loading...
   </p>
 
-  <!-- AD PLACEHOLDER (TOP) -->
-  <div id="ad-top" class="bg-gray-100 text-center text-sm text-gray-500 py-4 rounded mb-8">
+  <!-- AD -->
+  <div class="bg-gray-100 text-center py-4 rounded mb-8 text-sm text-gray-500">
     Advertisement
   </div>
 
-  <!-- ARTICLE CONTENT -->
-  <article id="post-content" class="article-content max-w-none text-gray-700 leading-7"></article>
+  <!-- CONTENT -->
+  <article
+    id="post-content"
+    class="prose max-w-none
+           prose-h2:text-2xl
+           prose-h2:font-bold
+           prose-h2:mt-8
+           prose-h2:mb-4">
+    Loading content...
+  </article>
 
-  <!-- INTERNAL LINKS -->
-  <div class="mt-10 border-t pt-6">
-    <h3 class="font-semibold mb-2">Explore More</h3>
-    <a href="tech.html" class="text-blue-600 mr-4">Tech News</a>
-    <a href="finance.html" class="text-green-600">Finance Basics</a>
-  </div>
-
-  <!-- AD BOTTOM -->
-  <div class="bg-gray-100 text-center text-sm text-gray-500 py-4 rounded mt-10">
+  <!-- AD -->
+  <div class="bg-gray-100 text-center py-4 rounded mt-10 text-sm text-gray-500">
     Advertisement
   </div>
 
 </main>
 
-<!-- RELATED POSTS -->
-<section class="max-w-3xl mx-auto px-4 mt-12">
-  <h3 class="text-xl font-bold mb-4">Related Posts</h3>
-  <div id="related-posts" class="grid md:grid-cols-2 gap-6">
-    <p class="text-gray-500">Loading related posts...</p>
-  </div>
-</section>
-
 <!-- FOOTER -->
-<footer class="bg-white border-t mt-16">
-  <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-500 text-center">
-    © 2025 SimpleTechFinance
-  </div>
+<footer class="bg-white border-t mt-16 text-center py-6 text-sm text-gray-500">
+  © 2025 SimpleTechFinance ·
+  <a href="privacy.html">Privacy</a> ·
+  <a href="disclaimer.html">Disclaimer</a>
 </footer>
 
-<!-- MENU SCRIPT -->
+<!-- SCRIPT -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-  }
-});
-</script>
+const params = new URLSearchParams(window.location.search);
+const postId = Number(params.get("id"));
 
-<!-- POST LOADER SCRIPT -->
-<script>
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    // Show loading state (already in HTML)
-    const params = new URLSearchParams(window.location.search);
-    const idParam = params.get('id');
-    const postId = idParam ? Number(idParam) : null;
-
-    if (!postId) {
-      document.getElementById('post-title').innerText = 'Post not found';
-      document.getElementById('post-content').innerText = 'No article id provided.';
-      return;
-    }
-
-    const resp = await fetch('posts.json');
-    if (!resp.ok) throw new Error('Could not fetch posts.json: ' + resp.status);
-
-    const posts = await resp.json();
-    if (!Array.isArray(posts)) throw new Error('posts.json is not an array');
-
-    // Find the post
-    const post = posts.find(p => Number(p.id) === postId);
+fetch("posts.json")
+  .then(res => res.json())
+  .then(posts => {
+    const post = posts.find(p => p.id === postId);
 
     if (!post) {
-      document.getElementById('post-title').innerText = 'Post not found';
-      document.getElementById('post-content').innerText = 'The article you are looking for does not exist.';
+      document.getElementById("post-title").innerText = "Post not found";
+      document.getElementById("post-content").innerText =
+        "The article you are looking for does not exist.";
       return;
     }
 
-    // Set title & meta
-    document.title = `${post.title} – SimpleTechFinance`;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc && post.summary) metaDesc.setAttribute('content', post.summary);
+    // SEO
+    document.title = post.title + " – SimpleTechFinance";
+    document.querySelector('meta[name="description"]')
+      .setAttribute("content", post.summary);
+    document.querySelector('link[rel="canonical"]')
+      .setAttribute(
+        "href",
+        `https://simpletechfinance.site/post.html?id=${post.id}`
+      );
 
-    // Populate page
-    document.getElementById('post-title').textContent = post.title;
-    document.getElementById('post-date').textContent = post.date ? `Published on ${post.date}` : '';
-    document.getElementById('post-category').textContent = post.category || '';
+    // Content
+    document.getElementById("post-title").innerText = post.title;
+    document.getElementById("post-date").innerText =
+      "Published on " + post.date;
+    document.getElementById("post-content").innerHTML = post.content;
+    document.getElementById("post-category").innerText = post.category;
 
-    // style category
-    const categoryEl = document.getElementById('post-category');
-    categoryEl.className = 'inline-block text-xs px-3 py-1 rounded-full mb-4';
-    if (post.category === 'Tech News') {
-      categoryEl.classList.add('bg-blue-100', 'text-blue-600');
-    } else {
-      categoryEl.classList.add('bg-green-100', 'text-green-600');
+    const cat = document.getElementById("post-category");
+    if (post.category === "Finance Basics") {
+      cat.className =
+        "inline-block text-xs px-3 py-1 rounded-full mb-4 bg-green-100 text-green-700";
     }
-
-    // Insert content (trusted HTML coming from your posts.json)
-    document.getElementById('post-content').innerHTML = post.content || `<p>${post.summary || ''}</p>`;
-
-    // RELATED POSTS
-    const relatedContainer = document.getElementById('related-posts');
-    relatedContainer.innerHTML = '';
-    const related = posts.filter(p => p.category === post.category && p.id !== post.id).slice(0, 4);
-
-    if (related.length === 0) {
-      relatedContainer.innerHTML = '<p class="text-gray-500">No related posts found.</p>';
-    } else {
-      related.forEach(r => {
-        const card = document.createElement('div');
-        card.className = 'bg-white rounded-xl shadow p-4 cursor-pointer';
-        card.innerHTML = `
-          <span class="text-xs px-2 py-1 rounded-full ${r.category === 'Tech News' ? 'bg-blue-100 text-blue-600' : 'bg-green-100 text-green-600'}">
-            ${r.category}
-          </span>
-          <h4 class="font-semibold mt-3 mb-2">${r.title}</h4>
-          <p class="text-sm text-gray-600 mb-3">${r.summary}</p>
-        `;
-        card.addEventListener('click', () => {
-          window.location.href = `post.html?id=${r.id}`;
-        });
-        relatedContainer.appendChild(card);
-      });
-    }
-
-  } catch (err) {
-    console.error('Post load error:', err);
-    document.getElementById('post-title').innerText = 'Error loading post';
-    document.getElementById('post-content').innerText = 'Something went wrong while loading the article.';
-    // show additional info in related area
-    document.getElementById('related-posts').innerHTML = `<p class="text-red-500">${err.message}</p>`;
-  }
-});
-</script>
-
-<!-- READING PROGRESS -->
-<script>
-window.addEventListener('scroll', () => {
-  const top = document.documentElement.scrollTop || document.body.scrollTop;
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const pct = height > 0 ? (top / height) * 100 : 0;
-  document.getElementById('progress-bar').style.width = pct + '%';
-});
+  })
+  .catch(() => {
+    document.getElementById("post-title").innerText = "Error loading post";
+    document.getElementById("post-content").innerText =
+      "Something went wrong. Please try again later.";
+  });
 </script>
 
 </body>
