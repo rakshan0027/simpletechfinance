@@ -2,184 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <title>Article – SimpleTechFinance</title>
-
-  <meta name="description" content="Read beginner-friendly tech news and finance basics on SimpleTechFinance.">
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Canonical (updated dynamically) -->
   <link rel="canonical" href="">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="SimpleTechFinance">
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- ARTICLE SCHEMA -->
-  <script type="application/ld+json" id="schema-json">
-  {}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV9NY09643"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FV9NY09643');
   </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-50 text-slate-800">
 
-<!-- NAVBAR -->
-<header class="bg-white shadow sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <div class="text-xl font-bold">
-      <span class="text-blue-600">SimpleTech</span>
-      <span class="text-green-600">Finance</span>
-    </div>
-
-    <nav class="hidden md:flex space-x-6 text-sm">
-      <a href="index.html">Home</a>
-      <a href="tech.html">Tech News</a>
-      <a href="finance.html">Finance Basics</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<!-- ARTICLE -->
-<main class="max-w-3xl mx-auto px-4 py-10 bg-white mt-6 rounded-xl shadow">
-
-  <!-- CATEGORY -->
-  <span
-    id="post-category"
-    class="inline-block text-xs px-3 py-1 rounded-full mb-4 bg-blue-100 text-blue-600">
-    Loading...
-  </span>
-
-<!-- BREADCRUMB -->
-<nav class="text-sm text-gray-500 mb-4">
-  <a href="index.html" class="hover:underline">Home</a>
-  <span class="mx-2">›</span>
-  <span id="breadcrumb-category">Category</span>
-</nav>
-
-  <!-- TITLE -->
-  <h1 id="post-title" class="text-3xl md:text-4xl font-bold mb-3">
-    Loading...
-  </h1>
-
-  <!-- DATE -->
-  <p id="post-date" class="text-sm text-gray-500 mb-6">
-    Loading...
-  </p>
-
-  <!-- AD TOP -->
-  <div class="bg-gray-100 text-center py-4 rounded mb-8 text-sm text-gray-500">
-    Advertisement
-  </div>
-
-  <!-- CONTENT -->
-  <article
-    id="post-content"
-    class="max-w-none leading-7 text-gray-700
-           [&>h2]:text-2xl
-           [&>h2]:font-bold
-           [&>h2]:mt-8
-           [&>h2]:mb-4
-           [&>p]:mb-4">
-    Loading content...
-  </article>
-
-  <!-- AD BOTTOM -->
-  <div class="bg-gray-100 text-center py-4 rounded mt-10 text-sm text-gray-500">
-    Advertisement
-  </div>
-
+<main class="max-w-3xl mx-auto px-4 py-10 bg-white mt-10 rounded-xl shadow">
+  <span id="post-category" class="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-600"></span>
+  <h1 id="post-title" class="text-3xl font-bold mt-4"></h1>
+  <p id="post-date" class="text-sm text-gray-500 mb-6"></p>
+  <article id="post-content" class="leading-7 text-gray-700"></article>
 </main>
 
-<!-- FOOTER -->
 <footer class="bg-white border-t mt-16 text-center py-6 text-sm text-gray-500">
-  © 2025 SimpleTechFinance ·
-  <a href="privacy.html">Privacy</a> ·
-  <a href="disclaimer.html">Disclaimer</a>
+  © 2025 SimpleTechFinance
 </footer>
 
-<!-- SCRIPT -->
 <script>
-const params = new URLSearchParams(window.location.search);
-const postId = Number(params.get("id"));
-
+const id=new URLSearchParams(location.search).get("id");
 fetch("posts.json")
-  .then(res => res.json())
-  .then(posts => {
-    const post = posts.find(p => p.id === postId);
+.then(r=>r.json())
+.then(posts=>{
+  const post=posts.find(p=>p.id==id);
+  if(!post) return;
 
-    if (!post) {
-      document.getElementById("post-title").innerText = "Post not found";
-      document.getElementById("post-content").innerText =
-        "The article you are looking for does not exist.";
-      return;
-    }
+  document.title=post.title+" – SimpleTechFinance";
+  document.querySelector("meta[name=description]").content=post.summary;
+  document.querySelector("link[rel=canonical]").href=
+    `https://simpletechfinance.site/post.html?id=${post.id}`;
 
-    /* SEO */
-    document.title = post.title + " – SimpleTechFinance";
-    document.querySelector('meta[name="description"]')
-      .setAttribute("content", post.summary);
-    document.querySelector('link[rel="canonical"]')
-      .setAttribute(
-        "href",
-        `https://simpletechfinance.site/post.html?id=${post.id}`
-      );
-
-    /* CONTENT */
-    document.getElementById("post-title").innerText = post.title;
-    document.getElementById("post-date").innerText =
-      "Published on " + post.date;
-    document.getElementById("post-content").innerHTML = post.content;
-    document.getElementById("post-category").innerText = post.category;
-
-    const cat = document.getElementById("post-category");
-    if (post.category === "Finance Basics") {
-      cat.className =
-        "inline-block text-xs px-3 py-1 rounded-full mb-4 bg-green-100 text-green-700";
-    }
-
-    /* SCHEMA */
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": post.title,
-      "description": post.summary,
-      "author": {
-        "@type": "Organization",
-        "name": "SimpleTechFinance"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "SimpleTechFinance"
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `https://simpletechfinance.site/post.html?id=${post.id}`
-      }
-    };
-
-    document.getElementById("schema-json").textContent =
-      JSON.stringify(schema);
-  })
-  .catch(() => {
-    document.getElementById("post-title").innerText = "Error loading post";
-    document.getElementById("post-content").innerText =
-      "Something went wrong. Please try again later.";
-  });
-</script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FV9NY09643"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FV9NY09643');
+  post.views=(post.views||0)+1;
+  document.getElementById("post-category").innerText=post.category;
+  document.getElementById("post-title").innerText=post.title;
+  document.getElementById("post-date").innerText="Published on "+post.date;
+  document.getElementById("post-content").innerHTML=post.content;
+});
 </script>
 
 </body>
