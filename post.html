@@ -8,11 +8,20 @@
   <meta name="description" content="Read beginner-friendly tech news and finance basics on SimpleTechFinance.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Canonical (updated by JS) -->
+  <!-- Canonical (updated dynamically) -->
   <link rel="canonical" href="">
 
-  <!-- Tailwind CSS -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="SimpleTechFinance">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ARTICLE SCHEMA -->
+  <script type="application/ld+json" id="schema-json">
+  {}
+  </script>
 </head>
 
 <body class="bg-gray-50 text-slate-800">
@@ -55,7 +64,7 @@
     Loading...
   </p>
 
-  <!-- AD -->
+  <!-- AD TOP -->
   <div class="bg-gray-100 text-center py-4 rounded mb-8 text-sm text-gray-500">
     Advertisement
   </div>
@@ -63,15 +72,16 @@
   <!-- CONTENT -->
   <article
     id="post-content"
-    class="prose max-w-none
-           prose-h2:text-2xl
-           prose-h2:font-bold
-           prose-h2:mt-8
-           prose-h2:mb-4">
+    class="max-w-none leading-7 text-gray-700
+           [&>h2]:text-2xl
+           [&>h2]:font-bold
+           [&>h2]:mt-8
+           [&>h2]:mb-4
+           [&>p]:mb-4">
     Loading content...
   </article>
 
-  <!-- AD -->
+  <!-- AD BOTTOM -->
   <div class="bg-gray-100 text-center py-4 rounded mt-10 text-sm text-gray-500">
     Advertisement
   </div>
@@ -102,7 +112,7 @@ fetch("posts.json")
       return;
     }
 
-    // SEO
+    /* SEO */
     document.title = post.title + " – SimpleTechFinance";
     document.querySelector('meta[name="description"]')
       .setAttribute("content", post.summary);
@@ -112,7 +122,7 @@ fetch("posts.json")
         `https://simpletechfinance.site/post.html?id=${post.id}`
       );
 
-    // Content
+    /* CONTENT */
     document.getElementById("post-title").innerText = post.title;
     document.getElementById("post-date").innerText =
       "Published on " + post.date;
@@ -124,6 +134,29 @@ fetch("posts.json")
       cat.className =
         "inline-block text-xs px-3 py-1 rounded-full mb-4 bg-green-100 text-green-700";
     }
+
+    /* SCHEMA */
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": post.title,
+      "description": post.summary,
+      "author": {
+        "@type": "Organization",
+        "name": "SimpleTechFinance"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SimpleTechFinance"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://simpletechfinance.site/post.html?id=${post.id}`
+      }
+    };
+
+    document.getElementById("schema-json").textContent =
+      JSON.stringify(schema);
   })
   .catch(() => {
     document.getElementById("post-title").innerText = "Error loading post";
