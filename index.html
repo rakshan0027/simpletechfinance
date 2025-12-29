@@ -152,14 +152,14 @@ function render() {
 
   page.forEach(p => {
     posts.innerHTML += `
-      <div class="bg-white p-5 rounded-xl shadow">
+      <div class="bg-white p-5 rounded-xl shadow-sm border hover:shadow-md transition">
         <span class="text-xs px-2 py-1 rounded-full ${
           p.category === "Tech News"
             ? "bg-blue-100 text-blue-600"
             : "bg-green-100 text-green-600"
         }">${p.category}</span>
 
-        <h3 class="font-bold mt-3">${p.title}</h3>
+        <h3 class="font-bold text-lg leading-snug mt-3">${p.title}</h3>
         <p class="text-sm text-gray-600 mb-3">${p.summary}</p>
 
         <a href="post.html?id=${p.id}" class="text-blue-600 text-sm">
