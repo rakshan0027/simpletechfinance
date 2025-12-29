@@ -3,26 +3,41 @@
 <head>
   <meta charset="UTF-8">
 
-  <title>SimpleTechFinance – Tech News & Finance Basics in Simple English</title>
+  <!-- SEO TITLE -->
+  <title>Contact Us – SimpleTechFinance</title>
 
-  <meta name="description" content="SimpleTechFinance explains Tech News and Finance Basics in simple English for students and beginners.">
-  <meta name="keywords" content="tech news, finance basics, AI, inflation, budgeting, technology for beginners">
+  <!-- SEO META -->
+  <meta name="description" content="Contact SimpleTechFinance for general questions, feedback, or educational inquiries related to tech news and finance basics.">
   <meta name="author" content="SimpleTechFinance">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://simpletechfinance.site/">
+  <!-- CANONICAL (FIXED) -->
+  <link rel="canonical" href="https://simpletechfinance.site/contact.html">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="SimpleTechFinance">
-  <meta property="og:description" content="Tech News & Finance Basics explained simply for beginners.">
+  <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://simpletechfinance.site/">
-  <meta property="og:image" content="https://simpletechfinance.site/og-image.png">
+  <meta property="og:title" content="Contact SimpleTechFinance">
+  <meta property="og:description" content="Get in touch with SimpleTechFinance for general inquiries and feedback.">
+  <meta property="og:url" content="https://simpletechfinance.site/contact.html">
+  <meta property="og:site_name" content="SimpleTechFinance">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary">
+
+  <!-- SCHEMA: CONTACT PAGE -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact SimpleTechFinance",
+    "url": "https://simpletechfinance.site/contact.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SimpleTechFinance",
+      "url": "https://simpletechfinance.site"
+    }
+  }
+  </script>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -44,7 +59,7 @@
       <a href="tech.html">Tech News</a>
       <a href="finance.html">Finance Basics</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="font-medium">Contact</a>
     </nav>
 
     <!-- Mobile Button -->
@@ -59,22 +74,24 @@
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden bg-white px-4 pb-4 space-y-2 border-t">
+    class="hidden bg-white px-4 pb-4 space-y-2 border-t">
     <a href="index.html" class="block py-2">Home</a>
     <a href="tech.html" class="block py-2">Tech News</a>
     <a href="finance.html" class="block py-2">Finance Basics</a>
     <a href="about.html" class="block py-2">About</a>
-    <a href="contact.html" class="block py-2">Contact</a>
+    <a href="contact.html" class="block py-2 font-medium">Contact</a>
     <a href="privacy.html" class="block py-2 text-gray-500">Privacy Policy</a>
     <a href="disclaimer.html" class="block py-2 text-gray-500">Disclaimer</a>
   </div>
 </header>
-  
+
+<!-- MAIN CONTENT -->
 <main class="max-w-3xl mx-auto px-6 py-12 bg-white mt-8 rounded-xl shadow">
-  <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+  <h1 class="text-3xl font-bold mb-4">Contact Us</h1>
 
   <p class="mb-6">
-    If you have questions, suggestions, or feedback, feel free to contact us.
+    If you have questions, suggestions, or feedback related to the content on
+    SimpleTechFinance, you are welcome to contact us.
   </p>
 
   <p class="mb-2">
@@ -83,14 +100,17 @@
   </p>
 
   <p class="text-sm text-gray-500">
-    (This email is for general inquiries only.)
+    This email is for general inquiries and educational feedback only.
+    We do not provide personal financial or technical advice.
   </p>
 </main>
 
+<!-- FOOTER -->
 <footer class="bg-white border-t mt-16 text-center text-sm text-gray-500 py-6">
   © 2025 SimpleTechFinance
 </footer>
 
+<!-- MOBILE MENU SCRIPT -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const menuBtn = document.getElementById('menu-btn');
@@ -105,15 +125,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<!-- Google tag (gtag.js) -->
+<!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV9NY09643"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FV9NY09643');
 </script>
-  
+
 </body>
 </html>
