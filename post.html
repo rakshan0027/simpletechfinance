@@ -3,23 +3,21 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- SEO META (Dynamic via JS later) -->
-<title>Article – SimpleTechFinance</title>
-<meta name="description" content="">
-<link rel="canonical" href="">
+  <!-- SEO META (dynamic) -->
+  <title>Article – SimpleTechFinance</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="">
 
-<!-- Open Graph -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="">
-<meta property="og:description" content="">
-<meta property="og:url" content="">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:url" content="">
 
-<!-- Article Schema (Dynamic) -->
-<script type="application/ld+json" id="article-schema">
-{}
-</script>
+  <!-- Article Schema -->
+  <script type="application/ld+json" id="article-schema">{}</script>
 
-<!-- Google Analytics -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV9NY09643"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -28,85 +26,157 @@
     gtag('config', 'G-FV9NY09643');
   </script>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-50 text-slate-800">
 
 <main class="max-w-3xl mx-auto px-4 py-10 bg-white mt-10 rounded-xl shadow">
-  <span id="post-category" class="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-600"></span>
-  <h1 id="post-title" class="text-3xl font-bold mt-4"></h1>
+
+  <!-- Breadcrumb -->
+  <nav class="text-sm text-gray-500 mb-4">
+    <a href="index.html" class="hover:underline">Home</a>
+    <span class="mx-2">›</span>
+    <span id="breadcrumb-category">Category</span>
+  </nav>
+
+  <!-- Category -->
+  <span id="post-category"
+    class="inline-block text-xs px-3 py-1 rounded-full mb-4 bg-blue-100 text-blue-600">
+  </span>
+
+  <!-- Title -->
+  <h1 id="post-title" class="text-3xl font-bold mt-2"></h1>
+
+  <!-- Date -->
   <p id="post-date" class="text-sm text-gray-500 mb-6"></p>
-  <article id="post-content" class="leading-7 text-gray-700"></article>
+
+  <!-- Content -->
+  <article id="post-content"
+    class="leading-7 text-gray-700
+           [&>h2]:text-2xl
+           [&>h2]:font-bold
+           [&>h2]:mt-8
+           [&>h2]:mb-4
+           [&>p]:mb-4">
+  </article>
+
+  <!-- Tags -->
+  <div id="post-tags" class="flex flex-wrap gap-2 mt-6"></div>
+
+  <!-- Related Posts -->
+  <section class="mt-12 border-t pt-6">
+    <h3 class="text-xl font-bold mb-4">Related Articles</h3>
+    <div id="related-posts" class="grid md:grid-cols-2 gap-6"></div>
+  </section>
+
 </main>
 
-<!-- RELATED POSTS -->
-<section class="mt-12 border-t pt-6">
-  <h3 class="text-xl font-bold mb-4">Related Articles</h3>
-  <div id="related-posts" class="grid md:grid-cols-2 gap-6"></div>
-</section>
+<!-- Back to Top -->
+<button id="backToTop"
+  class="hidden fixed bottom-20 right-5 bg-blue-600 text-white px-4 py-2 rounded-full shadow">
+  ↑ Top
+</button>
 
 <footer class="bg-white border-t mt-16 text-center py-6 text-sm text-gray-500">
   © 2025 SimpleTechFinance
 </footer>
 
 <script>
-const id=new URLSearchParams(location.search).get("id");
+const id = new URLSearchParams(location.search).get("id");
+
 fetch("posts.json")
-.then(r=>r.json())
-.then(posts=>{
-  const post=posts.find(p=>p.id==id);
-  if(!post) return;
+  .then(r => r.json())
+  .then(posts => {
+    const post = posts.find(p => p.id == id);
+    if (!post) return;
 
-  document.title=post.title+" – SimpleTechFinance";
-  // SEO + Schema Dynamic Injection
-document.querySelector("meta[name=description]").content = post.summary;
-document.querySelector("link[rel=canonical]").href =
-  `https://simpletechfinance.site/post.html?id=${post.id}`;
+    /* BASIC CONTENT */
+    document.title = post.title + " – SimpleTechFinance";
+    document.getElementById("post-title").innerText = post.title;
+    document.getElementById("post-date").innerText = "Published on " + post.date;
+    document.getElementById("post-content").innerHTML = post.content;
+    document.getElementById("post-category").innerText = post.category;
+    document.getElementById("breadcrumb-category").innerText = post.category;
 
-document.querySelector("meta[property='og:title']").content = post.title;
-document.querySelector("meta[property='og:description']").content = post.summary;
-document.querySelector("meta[property='og:url']").content =
-  `https://simpletechfinance.site/post.html?id=${post.id}`;
+    /* CATEGORY COLOR */
+    if (post.category === "Tech News") {
+      document.getElementById("post-category")
+        .classList.replace("bg-blue-100", "bg-blue-100");
+    }
 
-document.getElementById("article-schema").innerHTML = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": post.title,
-  "description": post.summary,
-  "datePublished": post.date,
-  "author": {
-    "@type": "Organization",
-    "name": "SimpleTechFinance"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "SimpleTechFinance"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": `https://simpletechfinance.site/post.html?id=${post.id}`
-  }
-});
-const relatedContainer = document.getElementById("related-posts");
+    /* TAGS */
+    if (post.tags) {
+      post.tags.forEach(tag => {
+        document.getElementById("post-tags").innerHTML += `
+          <span class="text-xs bg-gray-200 px-2 py-1 rounded">${tag}</span>
+        `;
+      });
+    }
 
-posts
-  .filter(p =>
-    p.id !== post.id &&
-    (
-      p.category === post.category ||
-      (p.tags && post.tags && p.tags.some(t => post.tags.includes(t)))
-    )
-  )
-  .slice(0, 4)
-  .forEach(r => {
-    relatedContainer.innerHTML += `
-      <a href="post.html?id=${r.id}"
-         class="block bg-gray-50 p-4 rounded-lg hover:shadow">
-        <h4 class="font-semibold">${r.title}</h4>
-        <p class="text-sm text-gray-600">${r.summary}</p>
-      </a>`;
+    /* SEO + OG */
+    document.querySelector("meta[name=description]").content = post.summary;
+    document.querySelector("link[rel=canonical]").href =
+      `https://simpletechfinance.site/post.html?id=${post.id}`;
+
+    document.querySelector("meta[property='og:title']").content = post.title;
+    document.querySelector("meta[property='og:description']").content = post.summary;
+    document.querySelector("meta[property='og:url']").content =
+      `https://simpletechfinance.site/post.html?id=${post.id}`;
+
+    /* ARTICLE SCHEMA */
+    document.getElementById("article-schema").innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": post.title,
+      "description": post.summary,
+      "datePublished": post.date,
+      "author": {
+        "@type": "Organization",
+        "name": "SimpleTechFinance"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SimpleTechFinance"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://simpletechfinance.site/post.html?id=${post.id}`
+      }
+    });
+
+    /* RELATED POSTS (CATEGORY + TAGS) */
+    const related = posts.filter(p =>
+      p.id !== post.id &&
+      (
+        p.category === post.category ||
+        (p.tags && post.tags && p.tags.some(t => post.tags.includes(t)))
+      )
+    ).slice(0, 4);
+
+    const relatedBox = document.getElementById("related-posts");
+    if (related.length === 0) {
+      relatedBox.innerHTML = "<p class='text-gray-500'>No related articles.</p>";
+    } else {
+      related.forEach(r => {
+        relatedBox.innerHTML += `
+          <a href="post.html?id=${r.id}"
+             class="block bg-gray-50 p-4 rounded-lg hover:shadow">
+            <h4 class="font-semibold">${r.title}</h4>
+            <p class="text-sm text-gray-600">${r.summary}</p>
+          </a>
+        `;
+      });
+    }
   });
+
+/* BACK TO TOP */
+const btn = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+  btn.classList.toggle("hidden", window.scrollY < 300);
+});
+btn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 </script>
 
 </body>
