@@ -53,15 +53,34 @@ fetch("posts.json")
   if(!post) return;
 
   document.title=post.title+" – SimpleTechFinance";
-  document.querySelector("meta[name=description]").content=post.summary;
-  document.querySelector("link[rel=canonical]").href=
-    `https://simpletechfinance.site/post.html?id=${post.id}`;
+  // SEO + Schema Dynamic Injection
+document.querySelector("meta[name=description]").content = post.summary;
+document.querySelector("link[rel=canonical]").href =
+  `https://simpletechfinance.site/post.html?id=${post.id}`;
 
-  post.views=(post.views||0)+1;
-  document.getElementById("post-category").innerText=post.category;
-  document.getElementById("post-title").innerText=post.title;
-  document.getElementById("post-date").innerText="Published on "+post.date;
-  document.getElementById("post-content").innerHTML=post.content;
+document.querySelector("meta[property='og:title']").content = post.title;
+document.querySelector("meta[property='og:description']").content = post.summary;
+document.querySelector("meta[property='og:url']").content =
+  `https://simpletechfinance.site/post.html?id=${post.id}`;
+
+document.getElementById("article-schema").innerHTML = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.title,
+  "description": post.summary,
+  "datePublished": post.date,
+  "author": {
+    "@type": "Organization",
+    "name": "SimpleTechFinance"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SimpleTechFinance"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://simpletechfinance.site/post.html?id=${post.id}`
+  }
 });
 </script>
 
