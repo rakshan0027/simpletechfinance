@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- SEO META (dynamic) -->
+  <!-- SEO META (Dynamic) -->
   <title>Article – SimpleTechFinance</title>
   <meta name="description" content="">
   <link rel="canonical" href="">
@@ -36,14 +36,14 @@
 
   <!-- Breadcrumb -->
   <nav class="text-sm text-gray-500 mb-4">
-    <a href="index.html" class="hover:underline">Home</a>
+    <a href="/" class="hover:underline">Home</a>
     <span class="mx-2">›</span>
-    <span id="breadcrumb-category">Category</span>
+    <span id="breadcrumb-category"></span>
   </nav>
 
   <!-- Category -->
   <span id="post-category"
-    class="inline-block text-xs px-3 py-1 rounded-full mb-4 bg-blue-100 text-blue-600">
+    class="inline-block text-xs px-3 py-1 rounded-full mb-4">
   </span>
 
   <!-- Title -->
@@ -84,92 +84,90 @@
 </footer>
 
 <script>
-const id = new URLSearchParams(location.search).get("id");
+/* GET SLUG FROM URL */
+const slug = location.pathname.split("/").pop().replace(".html", "");
 
-fetch("posts.json")
-  .then(r => r.json())
-  .then(posts => {
-    const post = posts.find(p => p.id == id);
-    if (!post) return;
+fetch("/posts.json")
+.then(r => r.json())
+.then(posts => {
+  const post = posts.find(p => p.slug === slug);
+  if (!post) return;
 
-    /* BASIC CONTENT */
-    document.title = post.title + " – SimpleTechFinance";
-    document.getElementById("post-title").innerText = post.title;
-    document.getElementById("post-date").innerText = "Published on " + post.date;
-    document.getElementById("post-content").innerHTML = post.content;
-    document.getElementById("post-category").innerText = post.category;
-    document.getElementById("breadcrumb-category").innerText = post.category;
+  const url = `https://simpletechfinance.site/${post.slug}`;
 
-    /* CATEGORY COLOR */
-    if (post.category === "Tech News") {
-      document.getElementById("post-category")
-        .classList.replace("bg-blue-100", "bg-blue-100");
-    }
+  /* BASIC CONTENT */
+  document.title = post.title + " – SimpleTechFinance";
+  document.getElementById("post-title").textContent = post.title;
+  document.getElementById("post-date").textContent = "Published on " + post.date;
+  document.getElementById("post-content").innerHTML = post.content;
+  document.getElementById("post-category").textContent = post.category;
+  document.getElementById("breadcrumb-category").textContent = post.category;
 
-    /* TAGS */
-    if (post.tags) {
-      post.tags.forEach(tag => {
-        document.getElementById("post-tags").innerHTML += `
-          <span class="text-xs bg-gray-200 px-2 py-1 rounded">${tag}</span>
-        `;
-      });
-    }
+  /* CATEGORY COLOR */
+  document.getElementById("post-category").className =
+    post.category === "Tech News"
+      ? "inline-block text-xs px-3 py-1 rounded-full mb-4 bg-blue-100 text-blue-600"
+      : "inline-block text-xs px-3 py-1 rounded-full mb-4 bg-green-100 text-green-600";
 
-    /* SEO + OG */
-    document.querySelector("meta[name=description]").content = post.summary;
-    document.querySelector("link[rel=canonical]").href =
-      `https://simpletechfinance.site/post.html?id=${post.id}`;
-
-    document.querySelector("meta[property='og:title']").content = post.title;
-    document.querySelector("meta[property='og:description']").content = post.summary;
-    document.querySelector("meta[property='og:url']").content =
-      `https://simpletechfinance.site/post.html?id=${post.id}`;
-
-    /* ARTICLE SCHEMA */
-    document.getElementById("article-schema").innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": post.title,
-      "description": post.summary,
-      "datePublished": post.date,
-      "author": {
-        "@type": "Organization",
-        "name": "SimpleTechFinance"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "SimpleTechFinance"
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `https://simpletechfinance.site/post.html?id=${post.id}`
-      }
+  /* TAGS */
+  if (post.tags) {
+    post.tags.forEach(tag => {
+      document.getElementById("post-tags").innerHTML += `
+        <span class="text-xs bg-gray-200 px-2 py-1 rounded">${tag}</span>
+      `;
     });
+  }
 
-    /* RELATED POSTS (CATEGORY + TAGS) */
-    const related = posts.filter(p =>
-      p.id !== post.id &&
-      (
-        p.category === post.category ||
-        (p.tags && post.tags && p.tags.some(t => post.tags.includes(t)))
-      )
-    ).slice(0, 4);
+  /* SEO + OG */
+  document.querySelector("meta[name=description]").content = post.summary;
+  document.querySelector("link[rel=canonical]").href = url;
+  document.querySelector("meta[property='og:title']").content = post.title;
+  document.querySelector("meta[property='og:description']").content = post.summary;
+  document.querySelector("meta[property='og:url']").content = url;
 
-    const relatedBox = document.getElementById("related-posts");
-    if (related.length === 0) {
-      relatedBox.innerHTML = "<p class='text-gray-500'>No related articles.</p>";
-    } else {
-      related.forEach(r => {
-        relatedBox.innerHTML += `
-          <a href="post.html?id=${r.id}"
-             class="block bg-gray-50 p-4 rounded-lg hover:shadow">
-            <h4 class="font-semibold">${r.title}</h4>
-            <p class="text-sm text-gray-600">${r.summary}</p>
-          </a>
-        `;
-      });
+  /* ARTICLE SCHEMA */
+  document.getElementById("article-schema").innerHTML = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.summary,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Organization",
+      "name": "SimpleTechFinance"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SimpleTechFinance"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": url
     }
   });
+
+  /* RELATED POSTS */
+  const related = posts.filter(p =>
+    p.slug !== post.slug &&
+    (p.category === post.category ||
+     (p.tags && post.tags && p.tags.some(t => post.tags.includes(t))))
+  ).slice(0, 4);
+
+  const box = document.getElementById("related-posts");
+  if (related.length === 0) {
+    box.innerHTML = "<p class='text-gray-500'>No related articles.</p>";
+  } else {
+    related.forEach(r => {
+      box.innerHTML += `
+        <a href="/${r.slug}"
+           class="block bg-gray-50 p-4 rounded-lg hover:shadow">
+          <h4 class="font-semibold">${r.title}</h4>
+          <p class="text-sm text-gray-600">${r.summary}</p>
+        </a>
+      `;
+    });
+  }
+});
 
 /* BACK TO TOP */
 const btn = document.getElementById("backToTop");
