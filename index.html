@@ -2,197 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <!-- SEO META -->
-<title>SimpleTechFinance – Tech News & Finance Basics Explained Simply</title>
-<meta name="description" content="SimpleTechFinance explains the latest Tech News and Finance Basics in simple, beginner-friendly language.">
-<link rel="canonical" href="https://simpletechfinance.site/">
-
-<!-- Open Graph (Social Sharing) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="SimpleTechFinance">
-<meta property="og:description" content="Tech News and Finance Basics explained simply for beginners.">
-<meta property="og:url" content="https://simpletechfinance.site/">
-<meta property="og:site_name" content="SimpleTechFinance">
-
-<!-- Schema: Website -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "SimpleTechFinance",
-  "url": "https://simpletechfinance.site/",
-  "description": "Beginner-friendly Tech News and Finance Basics",
-  "publisher": {
-    "@type": "Organization",
-    "name": "SimpleTechFinance"
-  }
-}
-</script>
-
-  <!-- ✅ GOOGLE ADSENSE VERIFICATION (REQUIRED FOR APPROVAL) -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4625351312268360"
-    crossorigin="anonymous">
-  </script>
-
-  <!-- ✅ GOOGLE ANALYTICS -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV9NY09643"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FV9NY09643');
-  </script>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>SimpleTechFinance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="bg-gray-50 text-slate-800">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">SimpleTechFinance</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- NAVBAR -->
-<header class="bg-white shadow sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <div class="text-xl font-bold">
-      <span class="text-blue-600">SimpleTech</span>
-      <span class="text-green-600">Finance</span>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Simple Tech Solutions for Smart Finance</h1>
+    <p>We help you manage technology and finance in a simple, effective way.</p>
+    <button>Get Started</button>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About SimpleTechFinance</h2>
+    <p>
+      SimpleTechFinance focuses on providing easy-to-understand financial
+      and technical solutions to help individuals and businesses grow.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-box">
+      <div class="card">Financial Planning</div>
+      <div class="card">Tech Consulting</div>
+      <div class="card">Business Strategy</div>
     </div>
+  </section>
 
-    <nav class="hidden md:flex space-x-6 text-sm">
-      <a href="index.html">Home</a>
-      <a href="tech.html">Tech News</a>
-      <a href="finance.html">Finance Basics</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-    <button id="menu-btn" class="md:hidden text-2xl">☰</button>
-  </div>
-
-  <div id="mobile-menu" class="hidden bg-white px-4 pb-4 border-t">
-    <a href="index.html" class="block py-2">Home</a>
-    <a href="tech.html" class="block py-2">Tech News</a>
-    <a href="finance.html" class="block py-2">Finance Basics</a>
-    <a href="about.html" class="block py-2">About</a>
-    <a href="contact.html" class="block py-2">Contact</a>
-    <a href="privacy.html" class="block py-2 text-gray-500">Privacy Policy</a>
-    <a href="disclaimer.html" class="block py-2 text-gray-500">Disclaimer</a>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="max-w-7xl mx-auto px-4 py-16 text-center">
-  <h1 class="text-3xl md:text-5xl font-bold mb-6">
-    Tech & Money, <span class="text-blue-600">Simplified.</span>
-  </h1>
-  <p class="text-gray-600 max-w-2xl mx-auto">
-    Beginner-friendly tech news and finance basics.
-  </p>
-</section>
-
-<!-- SEARCH -->
-<div class="max-w-xl mx-auto px-4 mb-10">
-  <input
-    id="searchInput"
-    type="text"
-    placeholder="Search articles..."
-    class="w-full px-4 py-3 border rounded-lg">
-</div>
-
-<!-- POSTS -->
-<section class="max-w-7xl mx-auto px-4 pb-16">
-  <h2 class="text-2xl font-bold mb-6">Latest Posts</h2>
-
-  <div id="posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-  <p id="no-results" class="hidden text-center text-gray-500 mt-6">
-    No posts found.
-  </p>
-
-  <div id="pagination" class="flex justify-center gap-4 mt-10"></div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-white border-t text-center py-6 text-sm text-gray-500">
-  © 2025 SimpleTechFinance ·
-  <a href="privacy.html">Privacy</a> ·
-  <a href="disclaimer.html">Disclaimer</a>
-</footer>
-
-<!-- SCRIPTS -->
-<script>
-document.getElementById("menu-btn").onclick = () =>
-  document.getElementById("mobile-menu").classList.toggle("hidden");
-
-let allPosts = [], filteredPosts = [], currentPage = 1;
-const perPage = 6;
-
-fetch("posts.json")
-  .then(r => r.json())
-  .then(d => {
-    allPosts = d.sort((a, b) => new Date(b.date) - new Date(a.date));
-    filteredPosts = allPosts;
-    render();
-  });
-
-function render() {
-  const posts = document.getElementById("posts");
-  const no = document.getElementById("no-results");
-  posts.innerHTML = "";
-
-  const start = (currentPage - 1) * perPage;
-  const page = filteredPosts.slice(start, start + perPage);
-
-  if (!page.length) {
-    no.classList.remove("hidden");
-    return;
-  }
-  no.classList.add("hidden");
-
-  page.forEach(p => {
-    posts.innerHTML += `
-      <div class="bg-white p-5 rounded-xl shadow-sm border hover:shadow-md transition">
-        <span class="text-xs px-2 py-1 rounded-full ${
-          p.category === "Tech News"
-            ? "bg-blue-100 text-blue-600"
-            : "bg-green-100 text-green-600"
-        }">${p.category}</span>
-
-        <h3 class="font-bold text-lg leading-snug mt-3">${p.title}</h3>
-        <p class="text-sm text-gray-600 mb-3">${p.summary}</p>
-
-        <a href="post.html?id=${p.id}" class="text-blue-600 text-sm">
-          Read →
-        </a>
-      </div>`;
-  });
-
-  renderPagination();
-}
-
-function renderPagination() {
-  const pag = document.getElementById("pagination");
-  pag.innerHTML = "";
-  const total = Math.ceil(filteredPosts.length / perPage);
-
-  if (currentPage > 1)
-    pag.innerHTML += `<button onclick="currentPage--;render()">← Prev</button>`;
-  if (currentPage < total)
-    pag.innerHTML += `<button onclick="currentPage++;render()">Next →</button>`;
-}
-
-document.getElementById("searchInput").oninput = e => {
-  const q = e.target.value.toLowerCase();
-  filteredPosts = allPosts.filter(
-    p =>
-      p.title.toLowerCase().includes(q) ||
-      p.summary.toLowerCase().includes(q)
-  );
-  currentPage = 1;
-  render();
-};
-</script>
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 SimpleTechFinance. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
