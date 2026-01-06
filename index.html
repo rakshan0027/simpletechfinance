@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>SimpleTechFinance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -32,20 +36,19 @@
   <button class="big-btn outline">Learn Our Mission</button>
 </section>
 
-<!-- MARKET HEADER -->
+<!-- TITLE -->
 <section class="center-text">
   <h1>Real-Time Market Awareness</h1>
-  <p>
-    Live market data powered by Alpha Vantage.
-    Educational use only.
-  </p>
+  <p>Live stocks & crypto data for educational purposes only.</p>
 </section>
 
 <!-- MARKET DATA -->
 <section class="market-grid">
+
+  <!-- STOCKS -->
   <div class="market-card">
     <h3>US Stocks</h3>
-    <p class="muted">Live prices (delayed)</p>
+    <p class="muted">Powered by Alpha Vantage</p>
 
     <div class="stats">
       <div class="stat"><span>AAPL</span><strong id="aapl">Loading…</strong></div>
@@ -55,34 +58,39 @@
     </div>
   </div>
 
+  <!-- CRYPTO -->
   <div class="market-card">
-    <h3>Market Insight</h3>
-    <p class="news-title">Live pricing provided by Alpha Vantage</p>
-    <p class="muted">
-      Data shown is for educational purposes only and should not be considered
-      financial advice.
-    </p>
-    <a class="link">Read Disclaimer →</a>
+    <h3>Crypto Prices (USD)</h3>
+    <p class="muted">Powered by CoinGecko</p>
+
+    <div class="stats">
+      <div class="stat"><span>Bitcoin</span><strong id="btc">Loading…</strong></div>
+      <div class="stat"><span>Ethereum</span><strong id="eth">Loading…</strong></div>
+    </div>
   </div>
+
+</section>
+
+<!-- BITCOIN CHART -->
+<section class="chart-section">
+  <h2>Bitcoin Price Chart (24h)</h2>
+  <canvas id="btcChart"></canvas>
 </section>
 
 <!-- LEGAL -->
 <section class="legal-box">
-  <span class="legal-icon">🛡️</span>
-  <div>
-    <h4>Important Legal Notice</h4>
-    <p>
-      SimpleTechFinance does not provide investment advice.
-      Market data may be delayed or inaccurate.
-    </p>
-  </div>
+  <span>🛡️</span>
+  <p>
+    This website is for educational purposes only and does not provide
+    financial or investment advice.
+  </p>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
   <div>
     <h3>SimpleTechFinance</h3>
-    <p>Empowering users with unbiased financial education.</p>
+    <p>Unbiased financial education for everyone.</p>
   </div>
 
   <div>
