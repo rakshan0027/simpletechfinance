@@ -11,7 +11,7 @@
 <!-- NAVBAR -->
 <header class="navbar">
   <div class="nav-left">
-    <div class="logo-icon">🛡️</div>
+    <span class="logo-icon">🛡️</span>
     <span class="logo-text">SimpleTechFinance</span>
   </div>
 
@@ -26,106 +26,55 @@
   <button class="primary-btn">Start Learning</button>
 </header>
 
-<!-- HERO ACTIONS -->
+<!-- HERO -->
 <section class="hero-actions">
   <button class="big-btn primary">Explore Knowledge Base →</button>
   <button class="big-btn outline">Learn Our Mission</button>
 </section>
 
-<!-- MARKET AWARENESS -->
+<!-- MARKET HEADER -->
 <section class="center-text">
   <h1>Real-Time Market Awareness</h1>
   <p>
-    Understanding current market conditions and staying informed on global
-    events are key components of responsible investing.
+    Live market data powered by Alpha Vantage.
+    Educational use only.
   </p>
 </section>
 
-<!-- MARKET SECTION -->
+<!-- MARKET DATA -->
 <section class="market-grid">
   <div class="market-card">
-    <h3>Equities & Indices</h3>
-    <p class="muted">Live estimates from global markets</p>
+    <h3>US Stocks</h3>
+    <p class="muted">Live prices (delayed)</p>
 
     <div class="stats">
-      <div class="stat"><span>S&P 500</span><strong>6,902.05</strong></div>
-      <div class="stat"><span>NASDAQ</span><strong>23,395.82</strong></div>
-      <div class="stat"><span>DJIA</span><strong>48,977.18</strong></div>
-      <div class="stat"><span>AAPL</span><strong>267.26</strong></div>
+      <div class="stat"><span>AAPL</span><strong id="aapl">Loading…</strong></div>
+      <div class="stat"><span>MSFT</span><strong id="msft">Loading…</strong></div>
+      <div class="stat"><span>GOOGL</span><strong id="googl">Loading…</strong></div>
+      <div class="stat"><span>AMZN</span><strong id="amzn">Loading…</strong></div>
     </div>
   </div>
 
   <div class="market-card">
-    <h3>Latest Market Intelligence</h3>
-    <p class="news-title">Memory Chips Rise as Big Tech Slumps</p>
+    <h3>Market Insight</h3>
+    <p class="news-title">Live pricing provided by Alpha Vantage</p>
     <p class="muted">
-      Apple and Microsoft shares faced pressure as market leadership shifted.
+      Data shown is for educational purposes only and should not be considered
+      financial advice.
     </p>
-    <a class="link">Read Full Coverage →</a>
+    <a class="link">Read Disclaimer →</a>
   </div>
 </section>
 
-<!-- LEGAL NOTICE -->
+<!-- LEGAL -->
 <section class="legal-box">
-  <div class="legal-icon">🛡️</div>
-  <div class="legal-text">
+  <span class="legal-icon">🛡️</span>
+  <div>
     <h4>Important Legal Notice</h4>
     <p>
-      This website is provided for educational purposes only and should not be
-      considered financial advice. Investing involves risk.
+      SimpleTechFinance does not provide investment advice.
+      Market data may be delayed or inaccurate.
     </p>
-  </div>
-  <a class="link">Read Full Disclaimer</a>
-</section>
-
-<!-- EDUCATION PATHS -->
-<section class="center-text">
-  <h1>Core Educational Paths</h1>
-  <p>
-    Structured learning designed for beginners to understand the mechanics of
-    money and risk.
-  </p>
-</section>
-
-<section class="card-grid">
-  <div class="edu-card">
-    <h3>Stock Market Basics</h3>
-    <p>Understand how companies grow and why public ownership matters.</p>
-    <a class="link">Learn more →</a>
-  </div>
-
-  <div class="edu-card">
-    <h3>Crypto Fundamentals</h3>
-    <p>Learn decentralization and digital assets without the hype.</p>
-    <a class="link">Learn more →</a>
-  </div>
-
-  <div class="edu-card">
-    <h3>Risk Management</h3>
-    <p>Protect your capital and manage exposure effectively.</p>
-    <a class="link">Learn more →</a>
-  </div>
-</section>
-
-<!-- FEATURED -->
-<section class="featured">
-  <div class="featured-header">
-    <h2>Featured Insights</h2>
-    <a class="link light">View all articles →</a>
-  </div>
-
-  <div class="featured-grid">
-    <div class="featured-card">
-      <span class="tag">STOCK MARKET BASICS</span>
-      <h3>Understanding the Stock Market</h3>
-      <p>Learn what stocks are, how markets function, and why companies go public.</p>
-    </div>
-
-    <div class="featured-card">
-      <span class="tag">CRYPTO FUNDAMENTALS</span>
-      <h3>Blockchain & Crypto Fundamentals</h3>
-      <p>De-mystifying digital assets and decentralization.</p>
-    </div>
   </div>
 </section>
 
@@ -133,26 +82,24 @@
 <footer class="footer">
   <div>
     <h3>SimpleTechFinance</h3>
-    <p>
-      Our mission is to empower individuals with clear, unbiased financial
-      education.
-    </p>
+    <p>Empowering users with unbiased financial education.</p>
   </div>
 
   <div>
     <h4>Explore</h4>
     <p>Knowledge Base</p>
-    <p>Latest Articles</p>
-    <p>Mission & Vision</p>
+    <p>Articles</p>
+    <p>About</p>
   </div>
 
   <div>
     <h4>Legal</h4>
-    <p>Full Disclaimer</p>
-    <p>Contact Us</p>
+    <p>Disclaimer</p>
+    <p>Contact</p>
     <p>© 2026 SimpleTechFinance</p>
   </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
