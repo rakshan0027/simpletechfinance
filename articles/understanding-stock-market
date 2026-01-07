@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Crypto Fundamentals | SimpleTechFinance</title>
+  <meta name="description" content="Learn blockchain and crypto fundamentals including how cryptocurrencies work, why they exist, and the risks involved. Beginner-friendly and educational.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
 <header class="navbar">
   <div class="nav-left">
     <span class="logo-icon">🛡️</span>
@@ -25,16 +27,7 @@
   <button class="primary-btn">Start Learning</button>
 </header>
 
-<nav class="breadcrumbs">
-  <a href="../index.html">Home</a>
-  <span>›</span>
-  <a href="../knowledge-base.html">Knowledge Base</a>
-  <span>›</span>
-  <a href="../articles.html?category=stocks">Articles</a>
-  <span>›</span>
-  <strong>Understanding the Stock Market</strong>
-</nav>
-
+<!-- BREADCRUMBS -->
 <nav class="breadcrumbs">
   <a href="../index.html">Home</a>
   <span>›</span>
@@ -45,151 +38,86 @@
   <strong>Crypto Fundamentals</strong>
 </nav>
 
-<section class="center-text">
+<!-- ARTICLE HEADER -->
+<section class="article-header">
   <span class="tag purple">CRYPTO FUNDAMENTALS</span>
   <h1>Blockchain & Crypto Fundamentals</h1>
-  <p>
-    Learn how blockchain technology works and why cryptocurrencies exist.
+
+  <div class="article-meta">
+    <span>Published: Jan 2026</span>
+    <span>•</span>
+    <span id="readingTime">Reading time: -- min</span>
+  </div>
+
+  <p class="article-intro">
+    This article explains how blockchain technology works, why cryptocurrencies
+    exist, and what beginners should understand before engaging with digital assets.
   </p>
 </section>
 
-<section class="article-content">
-<h1>What Moves Stock Prices? A Comprehensive Guide to Market Drivers</h1>
+<!-- ARTICLE CONTENT -->
+<article class="article-content" id="articleContent">
 
-<p><strong>Meta Description:</strong> Learn what moves stock prices in this beginner-friendly guide. Explore supply and demand, earnings, economic factors, and investor sentiment for clearer investing.</p>
+  <h2>What Is Blockchain Technology?</h2>
+  <p>
+    Blockchain is a decentralized digital ledger that records transactions across
+    a network of computers. Each transaction is verified and permanently stored.
+  </p>
 
-<p>When you look at a stock market ticker, you see numbers flashing in red and green, constantly shifting. For a beginner, this can feel like watching a chaotic game of chance. However, the movement of stock prices is rarely random. While the market can be volatile in the short term, price movements are generally driven by a specific set of fundamental and psychological factors.</p>
+  <img
+    src="../images/blockchain-ledger-diagram.png"
+    alt="Diagram showing how blockchain records transactions across multiple nodes"
+    class="article-image">
 
-<p>Understanding what moves stock prices is a foundational skill for any investor. It helps shift your perspective from "guessing" what will happen to "analyzing" why it is happening. In this guide, we will break down the primary drivers of the stock market, ranging from individual company performance to global economic shifts.</p>
+  <h2>Why Cryptocurrencies Exist</h2>
+  <p>
+    Cryptocurrencies were created to allow peer-to-peer value transfer without
+    relying on traditional financial intermediaries like banks.
+  </p>
 
-<h2>Table of Contents</h2>
-<ul>
-<li><a href="#supply-demand">The Fundamental Law: Supply and Demand</a></li>
-<li><a href="#earnings-performance">Company Performance and Earnings Reports</a></li>
-<li><a href="#interest-rates">The Influence of Interest Rates and Central Banks</a></li>
-<li><a href="#economic-indicators">Macroeconomic Indicators: Inflation and GDP</a></li>
-<li><a href="#investor-sentiment">Investor Sentiment and Market Psychology</a></li>
-<li><a href="#geopolitics">Geopolitical Events and External Shocks</a></li>
-<li><a href="#key-takeaways">Key Takeaways</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-</ul>
+  <h2>Bitcoin vs Ethereum</h2>
+  <p>
+    Bitcoin is primarily a store of value, while Ethereum enables programmable
+    applications using smart contracts.
+  </p>
 
-<img 
-  src="images/Mechanism of a Stock Trade.png"
-  alt="An educational diagram showing the interaction between a buyer’s bid and a seller’s ask price to determine a stock's current market price."
-  class="article-image">
+  <img
+    src="../images/bitcoin-vs-ethereum.png"
+    alt="Comparison diagram between Bitcoin and Ethereum use cases"
+    class="article-image">
 
+  <h2>Risks and Volatility</h2>
+  <p>
+    Crypto markets are highly volatile. Prices can change rapidly due to regulation,
+    speculation, or technological developments.
+  </p>
 
-<h2 id="supply-demand">The Fundamental Law: Supply and Demand</h2>
+  <h2>Key Takeaways</h2>
+  <ul>
+    <li>Blockchain is a decentralized ledger technology</li>
+    <li>Crypto enables peer-to-peer value transfer</li>
+    <li>Volatility is significantly higher than traditional assets</li>
+  </ul>
 
-<p>At its most basic level, the stock market functions like an auction. The price of a stock moves based on the balance between buyers (demand) and sellers (supply). If more people want to buy a stock than sell it, the price goes up. Conversely, if more people are looking to sell than buy, the price falls.</p>
+  <p><strong>Educational Disclaimer:</strong><br>
+    This article is for educational and informational purposes only and should not
+    be considered financial or investment advice. Investing involves risk.
+  </p>
 
-<p>This relationship is often represented by the "Bid" and the "Ask." The <strong>Bid</strong> is the highest price a buyer is willing to pay, and the <strong>Ask</strong> is the lowest price a seller is willing to accept. When these two meet, a trade occurs, and that transaction becomes the "current price" you see on your screen.</p>
+</article>
 
-<p>Supply can also be affected by the company itself. For example, if a company issues new shares (dilution), the supply increases, which can put downward pressure on the price. If a company engages in a "share buyback," it reduces the supply of shares available, which can often drive the price higher.</p>
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 SimpleTechFinance</p>
+</footer>
 
-<p><em>This topic connects with <strong>Stock Market Basics</strong>.</em></p>
+<!-- READING TIME SCRIPT -->
+<script>
+  const text = document.getElementById("articleContent").innerText;
+  const words = text.trim().split(/\s+/).length;
+  document.getElementById("readingTime").textContent =
+    "Reading time: " + Math.ceil(words / 200) + " min";
+</script>
 
-<h2 id="earnings-performance">Company Performance and Earnings Reports</h2>
-
-<p>If supply and demand are the "how" of price movement, company performance is often the "why." Investors buy stocks because they want to own a piece of a profitable business. Therefore, the health of that business is a primary driver of its stock price.</p>
-
-<h3>The Role of Earnings Season</h3>
-<p>Public companies are required to release financial reports every quarter. During "earnings season," the market processes these reports to determine if a company is growing, stagnating, or shrinking. Key metrics include:</p>
-<ul>
-<li><strong>Revenue:</strong> The total amount of money the company brought in.</li>
-<li><strong>Net Income (Profit):</strong> What remains after all expenses are paid.</li>
-<li><strong>Earnings Per Share (EPS):</strong> The portion of a company's profit allocated to each outstanding share.</li>
-</ul>
-
-<h3>The "Expectations Game"</h3>
-<p>Interestingly, a stock price doesn’t just move based on how much money a company made; it moves based on how that money compares to what analysts <em>expected</em>. If a company earns a million dollars but the market expected two million, the stock price may fall. This is because the previous price already "baked in" the higher expectation.</p>
-
-<h3>Forward Guidance</h3>
-<p>Often, the most important part of an earnings report is "guidance." This is the company’s own prediction for its future performance. If a company reports great profits today but warns that next year will be difficult, the stock price will likely drop immediately as investors look toward the future.</p>
-
-<img 
-  src="images/Earnings vs. Market Expectations.png"
-  alt="A bar chart comparing "Actual Earnings" vs "Estimated Earnings" and the resulting upward or downward trend in a hypothetical stock price."
-  class="article-image">
-
-<h2 id="interest-rates">The Influence of Interest Rates and Central Banks</h2>
-
-<p>While company performance matters, the broader environment in which those companies operate is equally important. Perhaps the most powerful external force on stock prices is the movement of interest rates, usually set by a country’s central bank (such as the Federal Reserve in the United States).</p>
-
-<p>There is generally an inverse relationship between interest rates and stock prices. When interest rates rise:</p>
-<ul>
-<li><strong>Borrowing becomes expensive:</strong> Companies find it costlier to borrow money for expansion, which can lower their future profits.</li>
-<li><strong>Consumer spending drops:</strong> High rates on credit cards and mortgages leave consumers with less disposable income to spend on products.</li>
-<li><strong>Alternative investments become attractive:</strong> When interest rates are high, "safe" investments like government bonds offer better returns, causing some investors to move money out of the "risky" stock market and into bonds.</li>
-</ul>
-
-<p>Conversely, when interest rates are lowered, borrowing is cheap, spending usually increases, and stocks often become the most attractive place for investors to seek growth.</p>
-
-<h2 id="economic-indicators">Macroeconomic Indicators: Inflation and GDP</h2>
-
-<p>The stock market is often seen as a barometer for the overall economy. Several key data points, known as macroeconomic indicators, can cause significant swings in stock prices.</p>
-
-<h3>Inflation</h3>
-<p>Inflation is the rate at which the price of goods and services rises. Moderate inflation is generally seen as a sign of a healthy, growing economy. However, hyper-inflation or very rapid price increases can be damaging. It forces the central bank to raise interest rates (as discussed above) and increases the cost of raw materials for companies, which can squeeze profit margins.</p>
-
-<h3>Gross Domestic Product (GDP)</h3>
-<p>GDP represents the total value of everything produced within a country. High GDP growth suggests a booming economy where businesses are likely to see increased sales. If GDP shrinks for two consecutive quarters, the economy is technically in a recession, which usually leads to falling stock prices across most sectors.</p>
-
-<h3>Employment Data</h3>
-<p>Low unemployment is usually good for the stock market because it means more people have salaries to spend. However, if the labor market is "too tight," it can lead to wage inflation, which might prompt the central bank to raise interest rates to cool the economy down.</p>
-
-<p><em>You may also want to read <strong>Risk Management Fundamentals</strong> to understand how to protect your portfolio during economic shifts.</em></p>
-
-<img 
-  src="images/Economic Cycle and Stocks.png"
-  alt="An illustration showing the four stages of the economic cycle (Expansion, Peak, Contraction, Trough) and how stock prices generally react in each phase."
-  class="article-image">
-
-<h2 id="investor-sentiment">Investor Sentiment and Market Psychology</h2>
-
-<p>The stock market is not always rational. Because it is made up of human beings (and algorithms programmed by human beings), emotions play a massive role in price movement. This is often referred to as <strong>Investor Sentiment</strong>.</p>
-
-<h3>Fear and Greed</h3>
-<p>In the short term, the market is often a "voting machine" for human emotion. When investors are greedy, they may drive prices up far beyond what the company’s fundamentals justify (often creating a "bubble"). When investors are afraid, they may sell stocks indiscriminately, causing prices to plummet even if the companies are still healthy.</p>
-
-<h3>Momentum and Trends</h3>
-<p>Once a stock starts moving in a certain direction, it can develop "momentum." As the price goes up, more people notice and buy in because they don't want to miss out (Fear Of Missing Out, or FOMO). This buying pressure pushes the price even higher, regardless of any change in the company's actual value.</p>
-
-<h3>The News Cycle</h3>
-<p>Headlines can cause immediate, knee-jerk reactions in stock prices. Whether it is a rumor of a merger, a celebrity tweet about a product, or a negative news story about a CEO, sentiment can shift in seconds, moving millions of dollars in market value before the facts are even fully verified.</p>
-
-<h2 id="geopolitics">Geopolitical Events and External Shocks</h2>
-
-<p>Sometimes, stock prices move because of events that have nothing to do with finance or business. These are often called "Black Swan" events or external shocks.</p>
-
-<ul>
-<li><strong>Elections:</strong> Changes in government can lead to changes in tax law, regulation, and trade policy, all of which affect corporate profits.</li>
-<li><strong>Trade Wars:</strong> Tariffs between countries can increase the cost of doing business for international companies.</li>
-<li><strong>Conflict and Instability:</strong> Wars or political unrest in major oil-producing or manufacturing regions can disrupt global supply chains, leading to uncertainty. The market tends to dislike uncertainty more than almost anything else.</li>
-</ul>
-
-<p>When uncertainty rises, investors often flee "risk assets" like stocks and move into "safe-haven assets" like gold or government treasury bonds.</p>
-
-<h2 id="key-takeaways">Key Takeaways</h2>
-<ul>
-<li><strong>Supply and Demand:</strong> This is the ultimate engine of price movement. More buyers than sellers equals a higher price.</li>
-<li><strong>Expectations Matter:</strong> It’s not just about whether a company is profitable; it’s about whether it performed better or worse than the market expected.</li>
-<li><strong>Interest Rates are Crucial:</strong> Central bank decisions on interest rates are perhaps the single most important factor for broad market trends.</li>
-<li><strong>Psychology and Sentiment:</strong> Human emotions like fear and greed can cause prices to deviate from their actual value in the short term.</li>
-<li><strong>Macro vs. Micro:</strong> A stock price is influenced by both "micro" factors (company-specific news) and "macro" factors (global economic trends).</li>
-</ul>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>No single factor moves a stock price in isolation. Instead, the price is the result of a complex, ongoing "conversation" between millions of participants, economic data points, and corporate milestones. While a sudden price drop can be alarming, or a sudden spike exciting, the experienced investor looks behind the movement to understand the underlying cause.</p>
-
-<p>By focusing on company earnings, monitoring interest rate trends, and keeping an eye on investor sentiment, you can begin to see the logic behind the market's movements. Remember that while the "noise" of the news can move prices day-to-day, it is usually the fundamental health of companies and the economy that drives stock prices over the long term.</p>
-
-<img 
-  src="images/Noise vs. The Signal.png"
-  alt="A graphic showing a jagged, volatile line representing short-term price movements (noise) compared to a smooth, upward-trending line representing long-term fundamental value (signal)."
-  class="article-image">
-
-<p><strong>Educational Disclaimer:</strong><br>
-This article is for educational and informational purposes only and should not be considered financial or investment advice. Investing involves risk.</p>
+</body>
+</html>
