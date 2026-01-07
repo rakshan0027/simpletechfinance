@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Crypto Fundamentals | SimpleTechFinance</title>
+  <title>Blockchain & Crypto Fundamentals | SimpleTechFinance</title>
+  <meta name="description" content="Learn the core principles of blockchain technology and cryptocurrency. Understand decentralization, consensus mechanisms, and digital asset security.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
 <header class="navbar">
   <div class="nav-left">
     <span class="logo-icon">🛡️</span>
@@ -25,6 +27,7 @@
   <button class="primary-btn">Start Learning</button>
 </header>
 
+<!-- BREADCRUMBS -->
 <nav class="breadcrumbs">
   <a href="../index.html">Home</a>
   <span>›</span>
@@ -35,42 +38,152 @@
   <strong>Crypto Fundamentals</strong>
 </nav>
 
-<section class="center-text">
+<!-- ARTICLE HEADER -->
+<section class="article-header">
   <span class="tag purple">CRYPTO FUNDAMENTALS</span>
-  <h1>Blockchain & Crypto Fundamentals</h1>
-  <p>
-    Learn how blockchain technology works and why cryptocurrencies exist.
+  <h1>Blockchain & Crypto Fundamentals: A Beginner’s Guide</h1>
+
+  <div class="article-meta">
+    <span>Published: Jan 2026</span>
+    <span>•</span>
+    <span id="readingTime">Reading time: -- min</span>
+  </div>
+
+  <p class="article-intro">
+    Blockchain and cryptocurrency have moved from technical fringes into the mainstream financial conversation. 
+    At their core, they represent a significant shift in how information and value are stored and transferred. 
+    This guide explores the architecture of decentralization and the mechanics of digital assets.
   </p>
 </section>
 
-<section class="article-content">
-  <h2>What is Blockchain?</h2>
-  <p>
-    Blockchain is a decentralized ledger that records transactions across
-    multiple computers securely.
-  </p>
+<!-- ARTICLE CONTENT -->
+<article class="article-content" id="articleContent">
 
-  <h2>Why Crypto Exists</h2>
-  <p>
-    Cryptocurrencies aim to enable peer-to-peer value transfer without
-    intermediaries.
-  </p>
+  <p>While cryptocurrency is the most famous application of blockchain, it is only one part of a much larger ecosystem. To grasp the fundamentals, one must look past the price charts and focus on the architecture of decentralization. This shift from central authority—like banks or governments—to a distributed network of computers is what makes this technology unique.</p>
 
-  <h2>Bitcoin vs Ethereum</h2>
-  <p>
-    Bitcoin focuses on store of value, while Ethereum enables programmable
-    applications.
-  </p>
+  <!-- IMAGE PROMPT:
+  A clean, professional diagram comparing a centralized network and a decentralized network. 
+  The centralized side shows all nodes connecting to a single central point. 
+  The decentralized side shows nodes connected to each other in a web-like structure. 
+  Labeling should be clear and minimalist.
+  -->
+  <img
+    src="../images/centralized-vs-decentralized-network.png"
+    alt="Diagram comparing a centralized network with a single point of control to a decentralized network web"
+    class="article-image"
+    loading="lazy">
 
-  <h2>Key Takeaway</h2>
-  <p>
-    Crypto is technology first. Understanding fundamentals is essential.
-  </p>
-</section>
+  <div class="toc-container">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="#what-is-blockchain">What is Blockchain Technology?</a></li>
+      <li><a href="#how-it-works">How a Blockchain Functions</a></li>
+      <li><a href="#consensus-mechanisms">Consensus: Proof of Work vs. Proof of Stake</a></li>
+      <li><a href="#defining-cryptocurrency">Defining Cryptocurrency and Digital Assets</a></li>
+      <li><a href="#bitcoin-vs-ethereum">Bitcoin, Ethereum, and the Crypto Ecosystem</a></li>
+      <li><a href="#wallets-security">Digital Wallets and Security Fundamentals</a></li>
+      <li><a href="#market-risks">Market Risks and Volatility</a></li>
+      <li><a href="#key-takeaways">Key Takeaways</a></li>
+    </ul>
+  </div>
 
+  <h2 id="what-is-blockchain">What is Blockchain Technology?</h2>
+  <p>A blockchain is essentially a digital ledger that is distributed across a network of computers. In traditional finance, a bank maintains a private ledger. In a blockchain system, there is no central authority. Every computer on the network (node) has access to a copy of the ledger.</p>
+  <p>The data is structured in "blocks" that are cryptographically linked to the one before it, forming a "chain." This structure ensures immutability; once a block is added, changing the information within it is computationally nearly impossible. This technology allows for the transfer of value without the need for a traditional middleman.</p>
+  <p><em>This topic connects with <strong>Stock Market Basics</strong> in its attempt to provide a transparent environment for asset exchange.</em></p>
+
+  <h2 id="how-it-works">How a Blockchain Functions</h2>
+  <p>When a transfer is initiated, it is broadcast to the entire network. At this stage, it is "pending" and must be verified to ensure the sender has the necessary funds. Nodes work to validate the transaction based on the protocol’s rules.</p>
+  
+  <h3>Cryptography and Hashing</h3>
+  <p>The security relies on "hashing," which creates a unique digital fingerprint. Each block contains the hash of the previous block. If a single character is altered, the hash changes entirely, breaking the chain. This ensures the history of the ledger remains transparent and tamper-proof.</p>
+
+  <!-- IMAGE PROMPT:
+  An educational diagram showing a block in a blockchain. 
+  The block should have three visible sections: Data (list of transactions), 
+  Hash (a unique string of numbers/letters), and Previous Hash (pointing back to the prior block). 
+  The style should be modern, using cool tones like blue and gray.
+  -->
+  <img
+    src="../images/blockchain-block-structure.png"
+    alt="Diagram of a blockchain block showing data, current hash, and the previous block hash connection"
+    class="article-image"
+    loading="lazy">
+
+  <h2 id="consensus-mechanisms">Consensus Mechanisms: Proof of Work vs. Proof of Stake</h2>
+  <p>Blockchain networks use a "consensus mechanism" to agree on the state of the ledger without a central leader.</p>
+  
+  <h3>Proof of Work (PoW)</h3>
+  <p>PoW, used by Bitcoin, requires "miners" to solve complex mathematical puzzles. The first to solve it adds the block and receives a reward. This process is highly secure but requires significant energy.</p>
+  
+  <h3>Proof of Stake (PoS)</h3>
+  <p>PoS is energy-efficient, relying on "validators" who "stake" or lock up their cryptocurrency. The network selects validators based on their stake. If a validator acts dishonestly, they lose their staked assets.</p>
+
+  <h2 id="defining-cryptocurrency">Defining Cryptocurrency and Digital Assets</h2>
+  <p>Cryptocurrency is a digital asset that uses cryptography for security. Most are not issued by a government. They are native to their respective blockchains and serve various purposes, from a medium of exchange to "tokens" representing a share in a project or service.</p>
+
+  <h2 id="bitcoin-vs-ethereum">Bitcoin, Ethereum, and the Crypto Ecosystem</h2>
+  <h3>Bitcoin: Digital Gold</h3>
+  <p>Created in 2009, Bitcoin was the first cryptocurrency. It is designed as a decentralized, peer-to-peer electronic cash system. Over time, it has evolved into a "store of value" due to its limited supply of 21 million coins.</p>
+  
+  <h3>Ethereum: The Global Computer</h3>
+  <p>Launched in 2015, Ethereum enables "smart contracts"—self-executing code that allows developers to build decentralized applications (dApps) on the blockchain. This has led to the rise of DeFi (Decentralized Finance) and NFTs (Non-Fungible Tokens).</p>
+  <p><em>You may also want to read <strong>Risk Management Fundamentals</strong> to understand how these assets fit into a broader perspective.</em></p>
+
+  <h2 id="wallets-security">Digital Wallets and Security Fundamentals</h2>
+  <p>Cryptocurrency is accessed through a digital wallet consisting of a public key (like an email address) and a private key (like a password). Anyone with your private key has total control over your assets.</p>
+  
+  <h3>Hot and Cold Storage</h3>
+  <p>A "hot wallet" is connected to the internet, providing convenience but higher risk. A "cold wallet" is a hardware device kept offline, offering the highest level of security for long-term storage.</p>
+
+  <h2 id="market-risks">Market Risks and Volatility</h2>
+  <p>Cryptocurrency markets are subject to extreme fluctuations. Prices can change rapidly based on news, regulation, or sentiment. Unlike traditional markets, these operate 24/7 without pauses.</p>
+  
+  <h3>Regulatory and Technological Risks</h3>
+  <p>Governments are still defining how to regulate these assets. Additionally, while the blockchain is secure, applications built on top may have bugs. Because transactions are irreversible, funds lost to scams or mistakes are usually unrecoverable.</p>
+
+  <!-- IMAGE PROMPT:
+  A professional infographic illustrating the concept of 'Hot Storage' vs 'Cold Storage'. 
+  Hot storage shows a smartphone with a cloud icon, while cold storage shows a USB-style 
+  hardware device disconnected from any wires. The color scheme should use green for 
+  safety/cold and orange or red for the higher risk of hot storage.
+  -->
+  <img
+    src="../images/hot-vs-cold-storage-security.png"
+    alt="Infographic comparing hot storage on a smartphone to cold storage on an offline hardware device"
+    class="article-image"
+    loading="lazy">
+
+  <h2 id="key-takeaways">Key Takeaways</h2>
+  <ul>
+    <li>Blockchain is a decentralized, immutable ledger recording data across a network.</li>
+    <li>Cryptography ensures data security and links blocks together permanently.</li>
+    <li>Consensus mechanisms like PoW and PoS allow nodes to agree without a central authority.</li>
+    <li>Bitcoin is a store of value; Ethereum is a platform for smart contracts.</li>
+    <li>Private keys are critical; cold storage is the safest long-term security method.</li>
+    <li>The market is highly volatile and carries regulatory and technological risks.</li>
+  </ul>
+
+  <h3>Conclusion</h3>
+  <p>Blockchain technology represents a shift in the architecture of trust. It offers a new way to manage value, but requires a high degree of personal responsibility. For beginners, focusing on education and the underlying technology is far more valuable than chasing short-term price movements. As the ecosystem continues to evolve, an informed perspective remains the best tool for navigating the digital asset space.</p>
+
+  <p><strong>Educational Disclaimer:</strong><br>
+  This article is for educational and informational purposes only and should not be considered financial or investment advice. Investing involves risk.</p>
+
+</article>
+
+<!-- FOOTER -->
 <footer class="footer">
   <p>© 2026 SimpleTechFinance</p>
 </footer>
+
+<!-- READING TIME SCRIPT -->
+<script>
+  const text = document.getElementById("articleContent").innerText;
+  const words = text.trim().split(/\s+/).length;
+  document.getElementById("readingTime").textContent =
+    "Reading time: " + Math.ceil(words / 200) + " min";
+</script>
 
 </body>
 </html>
