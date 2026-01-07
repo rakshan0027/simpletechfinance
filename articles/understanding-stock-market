@@ -64,11 +64,11 @@
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 
+<img 
+  src="images/Mechanism of a Stock Trade.png"
+  alt="An educational diagram showing the interaction between a buyer’s bid and a seller’s ask price to determine a stock's current market price."
+  class="article-image">
 
-[Image Suggestion]
-<br><strong>Title:</strong> The Mechanism of a Stock Trade
-<br><strong>Placement:</strong> After the Introduction
-<br><strong>Alt Text:</strong> An educational diagram showing the interaction between a buyer’s bid and a seller’s ask price to determine a stock's current market price.
 
 <h2 id="supply-demand">The Fundamental Law: Supply and Demand</h2>
 
