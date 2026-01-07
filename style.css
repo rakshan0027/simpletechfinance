@@ -225,3 +225,41 @@ body {
 .kb-list li {
   margin-bottom: 6px;
 }
+
+/* ARTICLES */
+.featured-article {
+  background: white;
+  margin: 0 56px 60px;
+  padding: 48px;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.featured-article h2 {
+  font-size: 32px;
+  margin: 14px 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.tag.blue {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.tag.purple {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.tag.green {
+  background: #dcfce7;
+  color: #166534;
+}
