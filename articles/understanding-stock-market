@@ -98,11 +98,10 @@
 <h3>Forward Guidance</h3>
 <p>Often, the most important part of an earnings report is "guidance." This is the company’s own prediction for its future performance. If a company reports great profits today but warns that next year will be difficult, the stock price will likely drop immediately as investors look toward the future.</p>
 
-
-[Image Suggestion]
-<br><strong>Title:</strong> Earnings vs. Market Expectations
-<br><strong>Placement:</strong> Within the Company Performance section
-<br><strong>Alt Text:</strong> A bar chart comparing "Actual Earnings" vs "Estimated Earnings" and the resulting upward or downward trend in a hypothetical stock price.
+<img 
+  src="images/Earnings vs. Market Expectations.png"
+  alt="A bar chart comparing "Actual Earnings" vs "Estimated Earnings" and the resulting upward or downward trend in a hypothetical stock price."
+  class="article-image">
 
 <h2 id="interest-rates">The Influence of Interest Rates and Central Banks</h2>
 
@@ -132,11 +131,10 @@
 
 <p><em>You may also want to read <strong>Risk Management Fundamentals</strong> to understand how to protect your portfolio during economic shifts.</em></p>
 
-
-[Image Suggestion]
-<br><strong>Title:</strong> The Economic Cycle and Stocks
-<br><strong>Placement:</strong> After the Macroeconomic Indicators section
-<br><strong>Alt Text:</strong> An illustration showing the four stages of the economic cycle (Expansion, Peak, Contraction, Trough) and how stock prices generally react in each phase.
+<img 
+  src="images/Economic Cycle and Stocks.png"
+  alt="An illustration showing the four stages of the economic cycle (Expansion, Peak, Contraction, Trough) and how stock prices generally react in each phase."
+  class="article-image">
 
 <h2 id="investor-sentiment">Investor Sentiment and Market Psychology</h2>
 
@@ -178,11 +176,10 @@
 
 <p>By focusing on company earnings, monitoring interest rate trends, and keeping an eye on investor sentiment, you can begin to see the logic behind the market's movements. Remember that while the "noise" of the news can move prices day-to-day, it is usually the fundamental health of companies and the economy that drives stock prices over the long term.</p>
 
-
-[Image Suggestion]
-<br><strong>Title:</strong> The "Noise" vs. The "Signal"
-<br><strong>Placement:</strong> Before the Conclusion
-<br><strong>Alt Text:</strong> A graphic showing a jagged, volatile line representing short-term price movements (noise) compared to a smooth, upward-trending line representing long-term fundamental value (signal).
+<img 
+  src="images/Noise vs. The Signal.png"
+  alt="A graphic showing a jagged, volatile line representing short-term price movements (noise) compared to a smooth, upward-trending line representing long-term fundamental value (signal)."
+  class="article-image">
 
 <p><strong>Educational Disclaimer:</strong><br>
 This article is for educational and informational purposes only and should not be considered financial or investment advice. Investing involves risk.</p>
