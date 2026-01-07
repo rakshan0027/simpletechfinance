@@ -263,3 +263,21 @@ body {
   background: #dcfce7;
   color: #166534;
 }
+
+/* ARTICLE CONTENT */
+.article-content {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+.article-content h2 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.article-content p {
+  color: #475569;
+  line-height: 1.8;
+}
