@@ -30,6 +30,16 @@
   <span>›</span>
   <a href="../knowledge-base.html">Knowledge Base</a>
   <span>›</span>
+  <a href="../articles.html?category=stocks">Articles</a>
+  <span>›</span>
+  <strong>Understanding the Stock Market</strong>
+</nav>
+
+<nav class="breadcrumbs">
+  <a href="../index.html">Home</a>
+  <span>›</span>
+  <a href="../knowledge-base.html">Knowledge Base</a>
+  <span>›</span>
   <a href="../articles.html?category=crypto">Articles</a>
   <span>›</span>
   <strong>Crypto Fundamentals</strong>
