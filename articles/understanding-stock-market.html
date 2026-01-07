@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Fundamentals | SimpleTechFinance</title>
+  <meta name="description" content="Learn blockchain and crypto fundamentals including how cryptocurrencies work, why they exist, and the risks involved. Beginner-friendly and educational.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-left">
+    <span class="logo-icon">🛡️</span>
+    <span class="logo-text">SimpleTechFinance</span>
+  </div>
+
+  <nav class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../knowledge-base.html">Knowledge Base</a>
+    <a href="../articles.html" class="active">Articles</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+  <button class="primary-btn">Start Learning</button>
+</header>
+
+<!-- BREADCRUMBS -->
+<nav class="breadcrumbs">
+  <a href="../index.html">Home</a>
+  <span>›</span>
+  <a href="../knowledge-base.html">Knowledge Base</a>
+  <span>›</span>
+  <a href="../articles.html?category=crypto">Articles</a>
+  <span>›</span>
+  <strong>Crypto Fundamentals</strong>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<section class="article-header">
+  <span class="tag purple">CRYPTO FUNDAMENTALS</span>
+  <h1>Blockchain & Crypto Fundamentals</h1>
+
+  <div class="article-meta">
+    <span>Published: Jan 2026</span>
+    <span>•</span>
+    <span id="readingTime">Reading time: -- min</span>
+  </div>
+
+  <p class="article-intro">
+    This article explains how blockchain technology works, why cryptocurrencies
+    exist, and what beginners should understand before engaging with digital assets.
+  </p>
+</section>
+
+<!-- ARTICLE CONTENT -->
+<article class="article-content" id="articleContent">
+
+  <h2>What Is Blockchain Technology?</h2>
+  <p>
+    Blockchain is a decentralized digital ledger that records transactions across
+    a network of computers. Each transaction is verified and permanently stored.
+  </p>
+
+  <img
+    src="../images/blockchain-ledger-diagram.png"
+    alt="Diagram showing how blockchain records transactions across multiple nodes"
+    class="article-image">
+
+  <h2>Why Cryptocurrencies Exist</h2>
+  <p>
+    Cryptocurrencies were created to allow peer-to-peer value transfer without
+    relying on traditional financial intermediaries like banks.
+  </p>
+
+  <h2>Bitcoin vs Ethereum</h2>
+  <p>
+    Bitcoin is primarily a store of value, while Ethereum enables programmable
+    applications using smart contracts.
+  </p>
+
+  <img
+    src="../images/bitcoin-vs-ethereum.png"
+    alt="Comparison diagram between Bitcoin and Ethereum use cases"
+    class="article-image">
+
+  <h2>Risks and Volatility</h2>
+  <p>
+    Crypto markets are highly volatile. Prices can change rapidly due to regulation,
+    speculation, or technological developments.
+  </p>
+
+  <h2>Key Takeaways</h2>
+  <ul>
+    <li>Blockchain is a decentralized ledger technology</li>
+    <li>Crypto enables peer-to-peer value transfer</li>
+    <li>Volatility is significantly higher than traditional assets</li>
+  </ul>
+
+  <p><strong>Educational Disclaimer:</strong><br>
+    This article is for educational and informational purposes only and should not
+    be considered financial or investment advice. Investing involves risk.
+  </p>
+
+</article>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 SimpleTechFinance</p>
+</footer>
+
+<!-- READING TIME SCRIPT -->
+<script>
+  const text = document.getElementById("articleContent").innerText;
+  const words = text.trim().split(/\s+/).length;
+  document.getElementById("readingTime").textContent =
+    "Reading time: " + Math.ceil(words / 200) + " min";
+</script>
+
+</body>
+</html>
