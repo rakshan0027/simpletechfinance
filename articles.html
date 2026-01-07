@@ -47,59 +47,47 @@
 </section>
 
 <!-- ARTICLE GRID -->
-<section class="card-grid">
+<section class="card-grid" id="articlesGrid">
 
-  <div class="edu-card">
+  <div class="edu-card" data-category="stocks">
     <span class="tag blue">STOCK MARKET</span>
     <h3>What Moves Stock Prices?</h3>
-    <p>
-      Supply, demand, earnings, and sentiment—explained simply.
-    </p>
+    <p>Supply, demand, earnings, and sentiment explained.</p>
     <a class="link">Read →</a>
   </div>
 
-  <div class="edu-card">
+  <div class="edu-card" data-category="crypto">
     <span class="tag purple">CRYPTO FUNDAMENTALS</span>
     <h3>Blockchain & Crypto Explained</h3>
-    <p>
-      Understand decentralization without the buzzwords.
-    </p>
+    <p>Decentralization without buzzwords.</p>
     <a class="link">Read →</a>
   </div>
 
-  <div class="edu-card">
+  <div class="edu-card" data-category="risk">
     <span class="tag green">RISK MANAGEMENT</span>
     <h3>Why Risk Management Matters</h3>
-    <p>
-      Protecting capital is more important than chasing returns.
-    </p>
+    <p>Protecting capital matters more than returns.</p>
     <a class="link">Read →</a>
   </div>
 
-  <div class="edu-card">
+  <div class="edu-card" data-category="stocks">
     <span class="tag blue">STOCK MARKET</span>
-    <h3>Indexes Explained: S&P 500, NASDAQ, DJIA</h3>
-    <p>
-      What market indexes represent and why they matter.
-    </p>
+    <h3>Indexes Explained</h3>
+    <p>S&P 500, NASDAQ, DJIA explained.</p>
     <a class="link">Read →</a>
   </div>
 
-  <div class="edu-card">
+  <div class="edu-card" data-category="crypto">
     <span class="tag purple">CRYPTO FUNDAMENTALS</span>
     <h3>Bitcoin vs Ethereum</h3>
-    <p>
-      Key differences between the two largest digital assets.
-    </p>
+    <p>Key differences explained.</p>
     <a class="link">Read →</a>
   </div>
 
-  <div class="edu-card">
+  <div class="edu-card" data-category="risk">
     <span class="tag green">RISK MANAGEMENT</span>
-    <h3>Common Beginner Investing Mistakes</h3>
-    <p>
-      Avoid costly errors many new investors make.
-    </p>
+    <h3>Beginner Investing Mistakes</h3>
+    <p>Avoid common errors.</p>
     <a class="link">Read →</a>
   </div>
 
@@ -128,6 +116,19 @@
     <p>© 2026 SimpleTechFinance</p>
   </div>
 </footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const category = params.get("category");
+
+  if (category) {
+    document.querySelectorAll(".edu-card").forEach(card => {
+      if (card.dataset.category !== category) {
+        card.style.display = "none";
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
