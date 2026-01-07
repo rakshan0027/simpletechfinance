@@ -281,3 +281,20 @@ body {
   color: #475569;
   line-height: 1.8;
 }
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  background: #f1f5f9;
+  padding: 12px 56px;
+  font-size: 14px;
+  color: #475569;
+}
+
+.breadcrumbs a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.breadcrumbs span {
+  margin: 0 6px;
+}
