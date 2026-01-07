@@ -338,3 +338,13 @@ body {
   line-height: 1.8;
   color: #475569;
 }
+
+.article-image {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  display: block;
+  margin: 36px auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
