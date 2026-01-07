@@ -214,3 +214,14 @@ body {
 .muted {
   color: #64748b;
 }
+
+.kb-list {
+  margin-top: 14px;
+  padding-left: 18px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.kb-list li {
+  margin-bottom: 6px;
+}
