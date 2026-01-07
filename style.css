@@ -298,3 +298,43 @@ body {
 .breadcrumbs span {
   margin: 0 6px;
 }
+
+/* ARTICLE POST */
+.article-header {
+  max-width: 800px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
+}
+
+.article-header h1 {
+  font-size: 40px;
+  margin: 12px 0;
+}
+
+.article-meta {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.article-intro {
+  font-size: 18px;
+  color: #475569;
+}
+
+.article-content {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+.article-content h2 {
+  margin-top: 36px;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.article-content p {
+  line-height: 1.8;
+  color: #475569;
+}
