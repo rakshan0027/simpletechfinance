@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Articles | SimpleTechFinance</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Explore in-depth articles on stock market basics, crypto fundamentals, risk management, and financial education at SimpleTechFinance.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google AdSense -->
+  <!-- Google AdSense -->
   <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4625351312268360"
-    crossorigin="anonymous">
-  </script>
-  
+    crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,7 +31,7 @@
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
-  
+
   <button id="themeToggle" class="theme-btn">🌙</button>
   <button class="primary-btn">Start Learning</button>
 </header>
@@ -54,6 +56,7 @@
   <a class="link" href="articles/stock-market-basics.html">Read Article →</a>
 </section>
 
+<!-- SEARCH -->
 <input
   type="text"
   id="articleSearch"
@@ -63,7 +66,6 @@
 <!-- ARTICLE GRID -->
 <section class="card-grid" id="articlesGrid">
 
-  <!-- STOCKS -->
   <div class="edu-card" data-category="stocks">
     <span class="tag blue">STOCK MARKET</span>
     <h3>What Moves Stock Prices?</h3>
@@ -71,7 +73,6 @@
     <a class="link" href="articles/understanding-stock-market.html">Read →</a>
   </div>
 
-  <!-- CRYPTO -->
   <div class="edu-card" data-category="crypto">
     <span class="tag purple">CRYPTO FUNDAMENTALS</span>
     <h3>Blockchain & Crypto Explained</h3>
@@ -79,7 +80,6 @@
     <a class="link" href="articles/crypto-fundamentals.html">Read →</a>
   </div>
 
-  <!-- RISK -->
   <div class="edu-card" data-category="risk">
     <span class="tag green">RISK MANAGEMENT</span>
     <h3>Why Risk Management Matters</h3>
@@ -87,15 +87,13 @@
     <a class="link" href="articles/risk-management.html">Read →</a>
   </div>
 
-  <!-- STOCKS -->
   <div class="edu-card" data-category="stocks">
     <span class="tag blue">STOCK MARKET</span>
     <h3>Indexes Explained</h3>
     <p>S&P 500, NASDAQ, DJIA explained.</p>
-    <a class="link" href="articles/Indexes-Explained.html">Read →</a>
+    <a class="link" href="articles/indexes-explained.html">Read →</a>
   </div>
 
-  <!-- CRYPTO -->
   <div class="edu-card" data-category="crypto">
     <span class="tag purple">CRYPTO FUNDAMENTALS</span>
     <h3>Bitcoin vs Ethereum</h3>
@@ -103,7 +101,6 @@
     <a class="link" href="articles/bitcoin-and-ethereum.html">Read →</a>
   </div>
 
-  <!-- RISK -->
   <div class="edu-card" data-category="risk">
     <span class="tag green">RISK MANAGEMENT</span>
     <h3>Beginner Investing Mistakes</h3>
@@ -138,7 +135,7 @@
   </div>
 </footer>
 
-<!-- CATEGORY FILTER SCRIPT -->
+<!-- CATEGORY FILTER -->
 <script>
   const params = new URLSearchParams(window.location.search);
   const category = params.get("category");
@@ -151,6 +148,9 @@
     });
   }
 </script>
+
+<!-- GLOBAL FEATURES -->
+<script src="script.js"></script>
 
 </body>
 </html>
