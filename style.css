@@ -358,3 +358,102 @@ body {
   margin: 30px auto 10px;
   border-radius: 14px;
 }
+
+/* ================================
+   MOBILE RESPONSIVE STYLES
+   ================================ */
+@media (max-width: 768px) {
+
+  /* GENERAL */
+  body {
+    font-size: 16px;
+  }
+
+  .center-text {
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+  }
+
+  .primary-btn {
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  /* GRIDS → STACK */
+  .card-grid,
+  .market-grid,
+  .featured-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  /* MARKET STATS */
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ARTICLE CONTENT */
+  .article-header,
+  .article-content {
+    padding: 0 16px;
+  }
+
+  .article-header h1 {
+    font-size: 30px;
+  }
+
+  .article-intro {
+    font-size: 16px;
+  }
+
+  /* IMAGES */
+  .article-image,
+  .article-featured-image {
+    max-width: 100%;
+  }
+
+  /* BREADCRUMBS */
+  .breadcrumbs {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  /* FOOTER */
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+}
