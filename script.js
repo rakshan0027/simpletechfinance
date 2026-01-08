@@ -67,3 +67,45 @@ async function loadBTCChart() {
 }
 
 loadBTCChart();
+
+const toggle = document.getElementById("themeToggle");
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") document.body.classList.add("dark");
+
+toggle?.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
+});
+
+window.addEventListener("scroll", () => {
+  const article = document.getElementById("articleContent");
+  if (!article) return;
+
+  const scrollTop = window.scrollY;
+  const height = article.scrollHeight - window.innerHeight;
+  document.getElementById("progressBar").style.width =
+    (scrollTop / height) * 100 + "%";
+});
+
+const btn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  btn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+btn.addEventListener("click", () =>
+  window.scrollTo({ top: 0, behavior: "smooth" })
+);
+
+document.getElementById("articleSearch")?.addEventListener("input", e => {
+  const term = e.target.value.toLowerCase();
+  document.querySelectorAll(".edu-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(term)
+      ? "block"
+      : "none";
+  });
+});
