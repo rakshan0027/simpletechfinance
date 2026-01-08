@@ -462,3 +462,9 @@ canvas {
   max-width: 100% !important;
   height: auto !important;
 }
+
+@media (max-width: 768px) {
+  a, button {
+    min-height: 44px;
+  }
+}
