@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +13,7 @@ body {
   line-height: 1.6;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 .navbar {
   background: white;
   display: flex;
@@ -22,7 +21,6 @@ body {
   align-items: center;
   padding: 20px 56px;
   border-bottom: 1px solid #e5e7eb;
-  position: relative;
 }
 
 .logo-text {
@@ -30,17 +28,11 @@ body {
   font-size: 18px;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-
 .nav-links a {
   margin: 0 14px;
   font-size: 15px;
   font-weight: 500;
   color: #475569;
-  text-decoration: none;
 }
 
 .nav-links .active {
@@ -54,61 +46,33 @@ body {
   padding: 10px 18px;
   border-radius: 999px;
   font-weight: 600;
-  cursor: pointer;
 }
 
-.primary-btn.large {
-  padding: 0.9rem 2rem;
-  font-size: 1.05rem;
-}
-
-/* Hamburger */
-.menu-toggle {
-  display: none;
-  font-size: 1.6rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.desktop-only {
-  display: inline-block;
-}
-
-/* ================= HERO ================= */
-.hero {
-  text-align: center;
-  padding: 5rem 1.5rem 4rem;
-}
-
-.hero h1 {
-  font-size: 42px;
-  max-width: 900px;
-  margin: 0 auto 1.5rem;
-}
-
-.hero p {
-  max-width: 720px;
-  margin: 0 auto 2.5rem;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #475569;
-}
-
-.hero-cta {
+/* HERO */
+.hero-actions {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px 56px;
 }
 
-.secondary-cta {
-  font-size: 1rem;
-  text-decoration: underline;
-  color: #2563eb;
+.big-btn {
+  padding: 22px 36px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-/* ================= CENTER TEXT ================= */
+.big-btn.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.big-btn.outline {
+  background: white;
+  border: 2px solid #e5e7eb;
+}
+
+/* CENTER */
 .center-text {
   text-align: center;
   padding: 80px 20px 60px;
@@ -125,7 +89,7 @@ body {
   color: #475569;
 }
 
-/* ================= MARKET ================= */
+/* MARKET */
 .market-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -157,13 +121,14 @@ body {
 .stat span {
   font-size: 13px;
   color: #64748b;
+  display: block;
 }
 
 .stat strong {
   font-size: 18px;
 }
 
-/* ================= LEGAL ================= */
+/* LEGAL */
 .legal-box {
   background: #f1f5f9;
   margin: 60px 56px;
@@ -173,7 +138,7 @@ body {
   gap: 20px;
 }
 
-/* ================= CARDS ================= */
+/* EDUCATION */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -181,24 +146,14 @@ body {
   padding: 40px 56px;
 }
 
-.edu-card,
-.featured-card,
-.market-card {
+.edu-card {
   background: white;
   padding: 32px;
   border-radius: 24px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.edu-card:hover,
-.featured-card:hover,
-.market-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 30px rgba(0,0,0,0.1);
-}
-
-/* ================= FEATURED ================= */
+/* FEATURED */
 .featured {
   background: #020617;
   color: white;
@@ -217,21 +172,22 @@ body {
   gap: 30px;
 }
 
+.featured-card {
+  background: rgba(255,255,255,0.06);
+  padding: 36px;
+  border-radius: 24px;
+}
+
 .tag {
   background: #2563eb;
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 10px;
   display: inline-block;
+  margin-bottom: 14px;
 }
 
-.tag.blue { background: #dbeafe; color: #1d4ed8; }
-.tag.purple { background: #ede9fe; color: #6d28d9; }
-.tag.green { background: #dcfce7; color: #166534; }
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 .footer {
   background: #020617;
   color: #cbd5f5;
@@ -259,7 +215,82 @@ body {
   color: #64748b;
 }
 
-/* ================= ARTICLES ================= */
+.kb-list {
+  margin-top: 14px;
+  padding-left: 18px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.kb-list li {
+  margin-bottom: 6px;
+}
+
+/* ARTICLES */
+.featured-article {
+  background: white;
+  margin: 0 56px 60px;
+  padding: 48px;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.featured-article h2 {
+  font-size: 32px;
+  margin: 14px 0;
+}
+
+.tag.blue {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.tag.purple {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.tag.green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* ARTICLE CONTENT */
+.article-content {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+.article-content h2 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.article-content p {
+  color: #475569;
+  line-height: 1.8;
+}
+
+/* BREADCRUMBS */
+.breadcrumbs {
+  background: #f1f5f9;
+  padding: 12px 56px;
+  font-size: 14px;
+  color: #475569;
+}
+
+.breadcrumbs a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.breadcrumbs span {
+  margin: 0 6px;
+}
+
+/* ARTICLE POST */
 .article-header {
   max-width: 800px;
   margin: 60px auto 40px;
@@ -268,6 +299,7 @@ body {
 
 .article-header h1 {
   font-size: 40px;
+  margin: 12px 0;
 }
 
 .article-meta {
@@ -281,85 +313,60 @@ body {
   color: #475569;
 }
 
-.article-content {
-  max-width: 800px;
-  margin: 0 auto 80px;
-  padding: 0 20px;
-}
-
-.article-content h2 {
-  margin-top: 36px;
-  font-size: 24px;
-}
-
-.article-content p {
-  color: #475569;
-  line-height: 1.8;
-}
-
 .article-image {
   width: 100%;
   max-width: 560px;
+  height: auto;
   display: block;
   margin: 36px auto;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* ================= MISC ================= */
-.breadcrumbs {
-  background: #f1f5f9;
-  padding: 12px 56px;
-  font-size: 14px;
-}
-
-.insight-box {
-  border-left: 4px solid #2563eb;
-  background: #f1f5f9;
-  padding: 20px;
-  margin: 30px 0;
-  font-style: italic;
-}
-
-#progressBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  background: #2563eb;
-  width: 0%;
-  z-index: 9999;
-}
-
-#backToTop {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  display: none;
-  padding: 12px;
-  border-radius: 50%;
-  background: #2563eb;
-  color: white;
-  border: none;
-}
-
-/* ================= DARK MODE ================= */
-body.dark {
-  background: #0f172a;
-  color: #e5e7eb;
-}
-
-body.dark .edu-card,
-body.dark .market-card,
-body.dark .featured-card,
-body.dark .article-content,
-body.dark .article-header {
-  background: #020617;
-  color: #e5e7eb;
-}
-
-/* ================= MOBILE ================= */
+/* MOBILE */
 @media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .card-grid,
+  .market-grid,
+  .featured-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 20px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* ======================================================
+   === MOBILE HAMBURGER NAVBAR OVERRIDE (ADDED ONLY) ===
+   ====================================================== */
+
+.menu-toggle {
+  display: none;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.desktop-only {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    position: relative;
+  }
 
   .menu-toggle {
     display: block;
@@ -367,10 +374,6 @@ body.dark .article-header {
 
   .desktop-only {
     display: none;
-  }
-
-  .navbar {
-    padding: 16px 20px;
   }
 
   .nav-links {
@@ -383,6 +386,7 @@ body.dark .article-header {
     padding: 16px 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     display: none;
+    z-index: 1000;
   }
 
   .nav-links.show {
@@ -392,21 +396,5 @@ body.dark .article-header {
   .nav-links a {
     padding: 12px 0;
     width: 100%;
-  }
-
-  .card-grid,
-  .market-grid,
-  .featured-grid,
-  .footer {
-    grid-template-columns: 1fr;
-    padding: 20px;
-  }
-
-  .center-text h1 {
-    font-size: 28px;
-  }
-
-  .article-header h1 {
-    font-size: 30px;
   }
 }
