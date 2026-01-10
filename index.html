@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SimpleTechFinance</title>
+  <title>SimpleTechFinance | Tech & Finance Made Simple</title>
+  <meta name="description" content="SimpleTechFinance helps beginners understand stocks, crypto, and risk management with clear, unbiased educational content.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google AdSense -->
   <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4625351312268360"
-    crossorigin="anonymous">
-  </script>
-  
+    crossorigin="anonymous"></script>
+
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -26,29 +26,64 @@
   </div>
 
   <nav class="nav-links">
-  <a href="index.html">Home</a>
-  <a href="knowledge-base.html">Knowledge Base</a>
-  <a href="articles.html">Articles</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-</nav>
+    <a class="active" href="index.html">Home</a>
+    <a href="start-here.html">Start Here</a>
+    <a href="knowledge-base.html">Knowledge Base</a>
+    <a href="articles.html">Articles</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-  <button class="primary-btn">Start Learning</button>
+  <a href="start-here.html" class="primary-btn">Start Learning</a>
 </header>
+
+<!-- ================= HERO ================= -->
+<section class="center-text hero">
+  <h1>Tech & Finance Made Simple for Beginners</h1>
+  <p>
+    Learn stocks, crypto, and risk management with calm, clear explanations —
+    no hype, no jargon, and no financial advice.
+  </p>
+
+  <div class="hero-cta">
+    <a href="start-here.html" class="primary-btn">Start Here →</a>
+    <a href="articles.html" class="link">Browse Articles</a>
+  </div>
+
+  <p class="muted">
+    Built for beginners who want to understand how markets work before risking money.
+  </p>
+</section>
+
+<!-- ================= WHO IT'S FOR ================= -->
+<section class="card-grid">
+  <div class="edu-card">
+    <h3>Absolute Beginners</h3>
+    <p>No prior knowledge needed. Learn step by step from the basics.</p>
+  </div>
+
+  <div class="edu-card">
+    <h3>Students & Curious Learners</h3>
+    <p>Understand how money, markets, and technology really work.</p>
+  </div>
+
+  <div class="edu-card">
+    <h3>Long-Term Thinkers</h3>
+    <p>Focus on understanding concepts, not shortcuts or speculation.</p>
+  </div>
+</section>
 
 <!-- ================= MARKET AWARENESS ================= -->
 <section class="center-text">
-  <h1>Real-Time Market Awareness</h1>
+  <h2>Real-Time Market Awareness</h2>
   <p>
-    Understanding current market conditions and staying informed on global
-    events are key components of responsible investing.
+    Live market data for learning and awareness — not trading or predictions.
   </p>
 </section>
 
 <!-- ================= MARKET DATA ================= -->
 <section class="market-grid">
 
-  <!-- STOCKS -->
   <div class="market-card">
     <h3>Equities & Indices</h3>
     <p class="muted">Live prices (Alpha Vantage)</p>
@@ -61,12 +96,10 @@
     </div>
   </div>
 
-  <!-- NEWS -->
   <div class="market-card">
     <h3>Latest Market Intelligence</h3>
-    <p class="news-title">Live market data & crypto updates</p>
     <p class="muted">
-      Data shown is for educational purposes only.
+      Market movements and trends for educational awareness only.
     </p>
   </div>
 
@@ -85,7 +118,7 @@
   </div>
 
   <div class="market-card">
-    <h3>Bitcoin Price Chart (24h)</h3>
+    <h3>Bitcoin Price (24h)</h3>
     <canvas id="btcChart"></canvas>
   </div>
 </section>
@@ -94,64 +127,38 @@
 <section class="legal-box">
   <span class="legal-icon">🛡️</span>
   <div>
-    <h4>Important Legal Notice</h4>
+    <h4>Educational Disclaimer</h4>
     <p>
-      All information on this website is provided for educational and
-      informational purposes only and should not be considered financial advice.
-      Investing involves risk.
+      This website is for educational purposes only and does not provide
+      financial or investment advice.
     </p>
     <a href="disclaimer.html" class="link">Read Full Disclaimer</a>
   </div>
 </section>
 
-<!-- ================= EDUCATIONAL PATHS ================= -->
+<!-- ================= LEARNING PATHS ================= -->
 <section class="center-text">
-  <h1>Core Educational Paths</h1>
-  <p>
-    Structured learning designed for beginners to understand the mechanics
-    of money and risk.
-  </p>
+  <h2>Start With the Basics</h2>
+  <p>Choose a learning path based on what you want to understand first.</p>
 </section>
 
 <section class="card-grid">
   <div class="edu-card">
     <h3>Stock Market Basics</h3>
-    <p>Understand how companies grow and why public ownership matters.</p>
-    <a href="articles.html" class="link">Learn more →</a>
+    <p>How stocks work, why prices move, and how markets are structured.</p>
+    <a href="articles.html?category=stocks" class="link">Start Learning →</a>
   </div>
 
   <div class="edu-card">
     <h3>Crypto Fundamentals</h3>
-    <p>Learn decentralization and digital assets without the hype.</p>
-    <a class="link">Learn more →</a>
+    <p>Blockchain, Bitcoin, and digital assets explained without hype.</p>
+    <a href="articles.html?category=crypto" class="link">Start Learning →</a>
   </div>
 
   <div class="edu-card">
     <h3>Risk Management</h3>
-    <p>Learn how to protect your capital and manage exposure.</p>
-    <a href="articles.html" class="link">Learn more →</a>
-  </div>
-</section>
-
-<!-- ================= FEATURED ================= -->
-<section class="featured">
-  <div class="featured-header">
-    <h2>Featured Insights</h2>
-    <a class="link light">View all articles →</a>
-  </div>
-
-  <div class="featured-grid">
-    <div class="featured-card">
-      <span class="tag">STOCK MARKET BASICS</span>
-      <h3>Understanding the Stock Market</h3>
-      <p>Learn what stocks are, how markets function, and why companies go public.</p>
-    </div>
-
-    <div class="featured-card">
-      <span class="tag">CRYPTO FUNDAMENTALS</span>
-      <h3>Blockchain & Crypto Fundamentals</h3>
-      <p>De-mystifying digital assets and decentralization.</p>
-    </div>
+    <p>Why protecting capital matters more than chasing returns.</p>
+    <a href="articles.html?category=risk" class="link">Start Learning →</a>
   </div>
 </section>
 
@@ -160,24 +167,23 @@
   <div>
     <h3>SimpleTechFinance</h3>
     <p>
-      Our mission is to empower individuals with clear, unbiased financial
-      education.
+      Clear, unbiased financial education for beginners.
     </p>
   </div>
 
   <div>
     <h4>Explore</h4>
-    <p>Knowledge Base</p>
-    <p>Latest Articles</p>
-    <p>Mission & Vision</p>
+    <p><a href="start-here.html">Start Here</a></p>
+    <p><a href="knowledge-base.html">Knowledge Base</a></p>
+    <p><a href="articles.html">Articles</a></p>
   </div>
 
   <div>
     <h4>Legal</h4>
     <p><a href="privacy-policy.html">Privacy Policy</a></p>
     <p><a href="disclaimer.html">Disclaimer</a></p>
-    <p><a href="contact.html">Contact Us</a></p>
-    <p>© 2026 SimpleTechFinance Hub</p>
+    <p><a href="contact.html">Contact</a></p>
+    <p>© 2026 SimpleTechFinance</p>
   </div>
 </footer>
 
